@@ -72,8 +72,8 @@ export default function UploadCard({
         onClick={() => inputRef.current?.click()}
         animate={{
           scale: dragging ? 1.02 : 1,
-          borderColor: dragging ? "#dc2626" : "#fecaca",
-          backgroundColor: dragging ? "#fef2f2" : "#ffffff",
+          borderColor: dragging ? "#4f46e5" : "#c7d2fe",
+          backgroundColor: dragging ? "#eef2ff" : "#ffffff",
         }}
         whileHover={{ scale: 1.01 }}
         className="ecg-grid mt-5 flex cursor-pointer flex-col items-center justify-center gap-3 rounded-xl border-2 border-dashed p-10 transition-colors"
@@ -85,7 +85,7 @@ export default function UploadCard({
           {state.status === "uploading" ? (
             <Loader2 className="h-10 w-10 animate-spin text-medical-600" />
           ) : state.status === "error" ? (
-            <FileWarning className="h-10 w-10 text-medical-600" />
+            <FileWarning className="h-10 w-10 text-red-500" />
           ) : state.status === "success" ? (
             <CheckCircle2 className="h-10 w-10 text-emerald-600" />
           ) : (
@@ -131,7 +131,7 @@ export default function UploadCard({
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="mt-3 rounded-lg bg-medical-50 px-3 py-2 text-sm font-medium text-medical-700"
+            className="mt-3 rounded-lg bg-red-50 px-3 py-2 text-sm font-medium text-red-700"
           >
             {state.message}
           </motion.p>

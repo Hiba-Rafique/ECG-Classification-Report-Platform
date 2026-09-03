@@ -11,6 +11,7 @@ summary — while the physician always keeps the final call.
 - **Real CNN inference** — 187K-parameter 1D-CNN trained on PTB-XL (21k records), served in-process
 - **Multi-format upload** — CSV, EDF, and WFDB record pairs (`.dat` + `.hea`)
 - **Automatic AI clinical report** — generated right after each analysis: per-flag explanations in clinical terms, an attention level, prioritized follow-up actions, and honest limitations
+- **RAG-grounded reports** — AI reports cite AHA/ACCF/HRS guideline criteria (Surawicz 2009) via FAISS semantic retrieval, so explanations reference specific diagnostic thresholds (e.g., Sokolow-Lyon, STEMI ≥2 mm in V2–V3)
 - **Graceful degradation** — no API key? A rule-based template report is generated instead; the UI never breaks
 - **Waveform review** — ECG trace with flagged regions, so doctors can cross-check the model
 - **Analysis history** — past results stored in SQLite, reloadable with one click
@@ -23,7 +24,10 @@ upload ──► load (CSV / EDF / WFDB) ──► preprocessing ──► 1D-CN
                           shared pipeline     │         flags (prob ≥ 0.15) ◄─┘
                                               ▼
                        result ──► SQLite ──► history table
-                            └──► AI report (Gemini / template fallback)
+                            └──► AI report:
+                                   RAG retriever ──► FAISS search over guidelines
+                                   context + result ──► LLM (Gemini) ──► clinical report
+                                   (fallback: template if no key or no index)
 ```
 
 Preprocessing — one shared pipeline for training *and* inference
@@ -40,6 +44,7 @@ Preprocessing — one shared pipeline for training *and* inference
 ├── backend/                   FastAPI application
 │   ├── api/routes.py          REST endpoints (upload, results, reports, health)
 │   ├── services/              Analysis orchestration + AI report generation
+│   ├── rag/                   RAG module (indexer, retriever, pipeline)
 │   ├── models/                SQLAlchemy ORM models
 │   ├── schemas/               Pydantic request/response schemas
 │   ├── config.py              Settings (env-driven, pydantic-settings)
@@ -52,8 +57,12 @@ Preprocessing — one shared pipeline for training *and* inference
 │   ├── kaggle_train.ipynb     Kaggle notebook (produced the shipped weights)
 │   ├── dataset.py             PTB-XL PyTorch Dataset + metadata loading
 │   └── train.py               Local training script
+├── scripts/                   Utility scripts
+│   └── build_index.py         Build FAISS index from guideline documents
 ├── frontend/                  Next.js 15 app (App Router, Tailwind v4)
 ├── models/weights/            Trained weights (best_model.pth — committed)
+├── data/guidelines/           Clinical guideline .md files (Surawicz 2009)
+├── data/index/                FAISS index artefacts (built by scripts/build_index.py)
 ├── data/raw/                  PTB-XL dataset goes here (gitignored)
 └── uploads/                   Uploaded recordings (gitignored)
 ```
@@ -110,6 +119,10 @@ All backend settings live in `.env` (created from `.env.example`):
 | `AI_API_KEY` | *(empty)* | Gemini API key — empty = template reports |
 | `AI_BASE_URL` | Gemini (OpenAI-compat) | Any OpenAI-compatible endpoint |
 | `AI_MODEL` | `gemini-2.5-flash` | Model name |
+| `RAG_ENABLED` | `false` | `true` = ground AI reports in guideline criteria via FAISS retrieval |
+| `RAG_INDEX_DIR` | `data/index` | Path to built FAISS index directory |
+| `RAG_EMBEDDING_MODEL` | `all-MiniLM-L6-v2` | sentence-transformers model (384-dim, 22 M params) |
+| `RAG_MAX_QUERIES` | `5` | Max retrieval queries per report request |
 
 The AI report works with any OpenAI-compatible provider — examples for
 OpenAI, Groq, OpenRouter, and Ollama are documented in `.env.example`.
@@ -127,6 +140,73 @@ The frontend reads `NEXT_PUBLIC_API_URL` from `frontend/.env.local`
 
 The model expects **12-lead** recordings. Any sampling rate is accepted —
 signals are resampled to 500 Hz during preprocessing.
+
+## RAG — Grounding AI Reports in Clinical Guidelines
+
+The RAG (Retrieval-Augmented Generation) module retrieves relevant passages from
+authoritative guidelines before the LLM writes each report. This means the AI
+cites **specific diagnostic criteria** (e.g., "per AHA/ACCF/HRS, STEMI requires
+≥2 mm ST elevation in V2–V3") instead of generating vague explanations.
+
+### How RAG works
+
+```
+ECG result (flags + confidences)
+    │
+    ▼
+query builder → 3–5 clinical queries per flagged superclass
+    │
+    ▼
+FAISS retriever → cosine similarity over 50 guideline chunks
+    │                 (all-MiniLM-L6-v2, 384-dim embeddings)
+    ▼
+top-k passages → injected into LLM prompt as clinical context
+    │
+    ▼
+Gemini writes report grounded in Surawicz 2009 criteria
+```
+
+### Setup
+
+```bat
+REM 1. Build the FAISS index (one-time, ~30 seconds)
+python -m scripts.build_index
+
+REM 2. Enable RAG in .env
+REM    RAG_ENABLED=true
+
+REM 3. Restart the backend — reports now cite guidelines
+```
+
+### Guideline source
+
+The shipped guideline is [`data/guidelines/surawicz-2009.md`](data/guidelines/surawicz-2009.md) —
+a structured markdown conversion of:
+
+> Surawicz B, Childers R, Deal BJ, et al. *AHA/ACCF/HRS Recommendations for
+> the Standardization and Interpretation of the Electrocardiogram.*
+> Circulation. 2009;119:e262–e308.
+
+To add more guidelines, drop additional `.md` files into `data/guidelines/` and
+rebuild the index. The chunker splits on H1/H2/H3 headings with configurable
+overlap.
+
+### Architecture
+
+| Module | File | Role |
+|---|---|---|
+| Indexer | [`backend/rag/indexer.py`](backend/rag/indexer.py) | Chunk markdown, embed with sentence-transformers, build FAISS IndexFlatIP |
+| Retriever | [`backend/rag/retriever.py`](backend/rag/retriever.py) | Load index, semantic search, format context; singleton per process |
+| Pipeline | [`backend/rag/pipeline.py`](backend/rag/pipeline.py) | Build queries from ECG flags, retrieve passages, assemble LLM context |
+| Report service | [`backend/services/ai_report.py`](backend/services/ai_report.py) | Injects RAG context into user prompt; degrades gracefully if disabled |
+| Build script | [`scripts/build_index.py`](scripts/build_index.py) | CLI: `python -m scripts.build_index [--docs_dir DIR] [--model NAME]` |
+
+### Graceful degradation
+
+RAG is fully optional. If `RAG_ENABLED=false`, the index doesn't exist, or
+retrieval returns no hits, the report falls through cleanly to the standard
+LLM or template path. The `rag_used` field in the response tells the frontend
+whether guideline context was included.
 
 ## Training the model
 
@@ -174,8 +254,9 @@ Interactive docs: **http://localhost:8000/docs**
 
 **Backend** — Python 3.10, FastAPI, SQLAlchemy (SQLite), Pydantic v2, httpx
 **ML** — PyTorch (1D-CNN), scipy (Butterworth filtering), wfdb (WFDB I/O)
+**RAG** — sentence-transformers (all-MiniLM-L6-v2), FAISS (flat inner-product), markdown chunker
 **Frontend** — Next.js 15 (App Router), React 19, Tailwind CSS v4, Framer Motion
-**AI reports** — Gemini via its OpenAI-compatible endpoint
+**AI reports** — Gemini via its OpenAI-compatible endpoint (RAG-grounded in AHA/ACCF/HRS guidelines)
 
 ## Disclaimer
 

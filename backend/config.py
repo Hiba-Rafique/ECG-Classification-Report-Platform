@@ -27,6 +27,14 @@ class Settings(BaseSettings):
     ai_base_url: str = "https://api.openai.com/v1"
     ai_model: str = "gpt-4o-mini"
 
+    # RAG — retrieval-augmented generation over clinical guidelines
+    # Set RAG_ENABLED=true and build the index (scripts/build_index.py) to
+    # ground AI reports in AHA/ACCF/HRS guideline criteria.
+    rag_enabled: bool = False
+    rag_index_dir: str = "data/index"
+    rag_embedding_model: str = "all-MiniLM-L6-v2"
+    rag_max_queries: int = 5  # max search queries per report request
+
     @property
     def allowed_extensions_list(self) -> List[str]:
         return [ext.strip() for ext in self.allowed_extensions.split(",")]

@@ -60,7 +60,7 @@ export default function HistoryTable({
                     <span
                       className={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${
                         r.overall_prediction === "abnormal"
-                          ? "bg-medical-100 text-medical-700"
+                          ? "bg-red-100 text-red-700"
                           : "bg-emerald-100 text-emerald-700"
                       }`}
                     >

@@ -4,21 +4,26 @@
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-jakarta), var(--font-inter), sans-serif;
 
-  --color-medical-50: #fef2f2;
-  --color-medical-100: #fee2e2;
-  --color-medical-200: #fecaca;
-  --color-medical-300: #fca5a5;
-  --color-medical-400: #f87171;
-  --color-medical-500: #ef4444;
-  --color-medical-600: #dc2626;
-  --color-medical-700: #b91c1c;
-  --color-medical-800: #991b1b;
-  --color-medical-900: #7f1d1d;
+  /* Professional indigo palette — red reserved for actual abnormality markers */
+  --color-medical-50: #eef2ff;
+  --color-medical-100: #e0e7ff;
+  --color-medical-200: #c7d2fe;
+  --color-medical-300: #a5b4fc;
+  --color-medical-400: #818cf8;
+  --color-medical-500: #6366f1;
+  --color-medical-600: #4f46e5;
+  --color-medical-700: #4338ca;
+  --color-medical-800: #3730a3;
+  --color-medical-900: #312e81;
 
   --animate-ecg: ecg-sweep 2.8s linear infinite;
   --animate-pulse-ring: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   --animate-fade-up: fade-up 0.5s ease-out both;
   --animate-float: float 6s ease-in-out infinite;
+  --animate-heartbeat: heartbeat 1.2s ease-in-out infinite;
+  --animate-shimmer: shimmer 2s linear infinite;
+  --animate-glow-pulse: glow-pulse 3s ease-in-out infinite;
+  --animate-breathe: breathe 4s ease-in-out infinite;
 }
 
 @keyframes ecg-sweep {
@@ -42,20 +47,66 @@
   50% { transform: translateY(-10px); }
 }
 
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  14% { transform: scale(1.15); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.1); }
+  70% { transform: scale(1); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.1); }
+  50% { box-shadow: 0 0 24px 4px rgba(99, 102, 241, 0.12); }
+}
+
+@keyframes breathe {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.03); }
+}
+
 body {
   @apply bg-gradient-to-b from-medical-50 via-white to-medical-50 text-slate-900 font-sans antialiased;
 }
 
 /* Scrollbar polish */
-::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar { width: 8px; height: 8px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { @apply bg-medical-200 rounded-full; }
 ::-webkit-scrollbar-thumb:hover { @apply bg-medical-300; }
 
-/* ECG grid backdrop */
+/* ECG grid backdrop (used by UploadCard) — indigo tint */
 .ecg-grid {
   background-image:
-    linear-gradient(to right, rgba(220, 38, 38, 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(220, 38, 38, 0.06) 1px, transparent 1px);
+    linear-gradient(to right, rgba(99, 102, 241, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(99, 102, 241, 0.06) 1px, transparent 1px);
   background-size: 28px 28px;
+}
+
+/* Shimmer utility for loading states */
+.shimmer-bg {
+  background: linear-gradient(
+    90deg,
+    rgba(226,232,240,0.3) 25%,
+    rgba(226,232,240,0.6) 50%,
+    rgba(226,232,240,0.3) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
+
+/* Smooth transitions for interactive elements */
+a, button {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Selection color — indigo tint */
+::selection {
+  background-color: rgba(99, 102, 241, 0.15);
+  color: inherit;
 }

@@ -32,6 +32,8 @@ export interface AiReport {
   limitations?: string[];
   disclaimer: string;
   generated_by: "ai" | "template";
+  rag_used?: boolean;
+  guideline_references?: string[];
 }
 
 const API_BASE =
