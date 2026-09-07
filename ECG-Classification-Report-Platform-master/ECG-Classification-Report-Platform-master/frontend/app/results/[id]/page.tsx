@@ -56,17 +56,17 @@ export default function ResultsPage({
   return (
     <div className="min-h-screen">
       {/* ── Header ─────────────────────────────────────────── */}
-      <header className="sticky top-0 z-40 border-b border-slate-200/70 bg-white/80 backdrop-blur-md">
+      <header className="sticky top-0 z-40 border-b border-white/10 bg-black">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3.5 sm:px-6">
           <Link
             href="/"
-            className="font-display text-base font-bold tracking-tight text-slate-900"
+            className="font-display text-base font-bold tracking-tight text-white"
           >
             CardioLens
           </Link>
           <Link
             href="/upload"
-            className="rounded-lg bg-medical-700 px-4 py-1.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-medical-800"
+            className="rounded-lg bg-white px-4 py-1.5 text-sm font-medium text-black shadow-sm transition-colors hover:bg-brand hover:text-white"
           >
             New analysis
           </Link>
@@ -81,11 +81,11 @@ export default function ResultsPage({
             animate={{ opacity: 1, y: 0 }}
             className="mx-auto max-w-md rounded-xl border border-red-200 bg-red-50 p-8 text-center"
           >
-            <AlertCircle className="mx-auto h-9 w-9 text-red-500" />
+            <AlertCircle className="mx-auto h-9 w-9 text-red-600" />
             <p className="mt-3 text-sm font-medium text-red-700">{error}</p>
             <Link
               href="/upload"
-              className="mt-5 inline-flex items-center gap-1.5 rounded-lg bg-medical-700 px-4 py-2 text-xs font-semibold text-white transition-colors hover:bg-medical-800"
+              className="mt-5 inline-flex items-center gap-1.5 rounded-lg bg-black px-4 py-2 text-xs font-semibold text-white transition-colors hover:bg-brand"
             >
               Start a new analysis
             </Link>
@@ -94,16 +94,16 @@ export default function ResultsPage({
 
         {/* ── Loading ──────────────────────────────────────── */}
         {!error && !result && (
-          <div className="flex flex-col items-center justify-center py-16">
-            <EcgLine height={70} className="w-full max-w-md opacity-70" />
-            <p className="mt-5 text-sm font-medium text-slate-500">
+          <div className="flex flex-col items-center justify-center rounded-2xl bg-black px-6 py-16">
+            <EcgLine height={70} className="w-full max-w-md opacity-80" />
+            <p className="mt-5 text-sm font-medium text-white">
               Loading analysis…
             </p>
             <div className="mt-6 w-full max-w-md space-y-3">
               {[0, 1, 2].map((i) => (
                 <div
                   key={i}
-                  className="h-16 animate-pulse rounded-xl bg-slate-100/80"
+                  className="h-16 animate-pulse rounded-xl bg-white/10"
                   style={{ animationDelay: `${i * 150}ms` }}
                 />
               ))}
@@ -120,13 +120,13 @@ export default function ResultsPage({
             className="space-y-6"
           >
             {/* Waveform */}
-            <section className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
+            <section className="rounded-xl border border-black/10 bg-white p-4 shadow-sm sm:p-5">
               <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
-                <h2 className="font-display text-sm font-bold text-slate-900">
+                <h2 className="font-display text-sm font-bold text-black">
                   12-Lead ECG
                 </h2>
                 {result.flags.length > 0 && (
-                  <span className="rounded-full bg-red-50 px-2.5 py-0.5 text-[11px] font-semibold text-red-700 ring-1 ring-red-200">
+                  <span className="rounded-full bg-brand/10 px-2.5 py-0.5 text-[11px] font-semibold text-red-700 ring-1 ring-brand/30">
                     {result.flags.length} finding
                     {result.flags.length > 1 ? "s" : ""} — flagged leads
                     highlighted
@@ -147,8 +147,8 @@ export default function ResultsPage({
 
       {/* ── Footer ──────────────────────────────────────────── */}
       {result && (
-        <footer className="border-t border-slate-200 py-6">
-          <p className="mx-auto max-w-6xl px-4 text-xs leading-relaxed text-slate-400 sm:px-6">
+        <footer className="border-t border-white/15 py-6">
+          <p className="mx-auto max-w-6xl px-4 text-xs leading-relaxed text-white sm:px-6">
             This report is decision support only. Verify flagged regions
             against the raw waveform before acting on them.
           </p>

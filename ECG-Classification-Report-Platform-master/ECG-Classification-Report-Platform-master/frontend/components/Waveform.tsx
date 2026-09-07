@@ -105,7 +105,7 @@ function drawECG(
     pxPerMm: number, flagged: boolean,
   ) => {
     if (flagged) {
-      ctx.fillStyle = "rgba(239, 68, 68, 0.05)";
+      ctx.fillStyle = "rgba(217, 4, 41, 0.05)";
       ctx.fillRect(x, y, w, h);
     }
 
@@ -115,8 +115,8 @@ function drawECG(
     // Small squares — only when they are at least ~2.5 px apart
     if (small >= 2.4) {
       ctx.strokeStyle = flagged
-        ? "rgba(239, 68, 68, 0.13)"
-        : "rgba(220, 38, 38, 0.13)";
+        ? "rgba(217, 4, 41, 0.16)"
+        : "rgba(217, 4, 41, 0.13)";
       ctx.lineWidth = 1;
       ctx.beginPath();
       for (let gx = x + small; gx < x + w - 0.5; gx += small) {
@@ -130,8 +130,8 @@ function drawECG(
 
     // Bold 5 mm squares
     ctx.strokeStyle = flagged
-      ? "rgba(239, 68, 68, 0.30)"
-      : "rgba(220, 38, 38, 0.28)";
+      ? "rgba(217, 4, 41, 0.32)"
+      : "rgba(217, 4, 41, 0.28)";
     ctx.lineWidth = 1;
     ctx.beginPath();
     for (let gx = x; gx <= x + w + 0.5; gx += large) {
@@ -184,9 +184,9 @@ function drawECG(
     ctx.clip();
 
     if (flagged) {
-      ctx.fillStyle = "rgba(239, 68, 68, 0.07)";
+      ctx.fillStyle = "rgba(217, 4, 41, 0.07)";
       ctx.fillRect(x, y, w, h);
-      ctx.fillStyle = "#ef4444";
+      ctx.fillStyle = "#d90429";
       ctx.fillRect(x, y, 3, h);
     }
 
@@ -196,14 +196,14 @@ function drawECG(
     if (flagged) {
       // Glow layer (wider, semi-transparent red)
       ctx.save();
-      ctx.strokeStyle = "rgba(239, 68, 68, 0.20)";
+      ctx.strokeStyle = "rgba(217, 4, 41, 0.20)";
       ctx.lineWidth = lineWidth * 3.2;
       trace();
       ctx.stroke();
       ctx.restore();
     }
 
-    ctx.strokeStyle = flagged ? "#ef4444" : "#1e293b";
+    ctx.strokeStyle = flagged ? "#d90429" : "#000000";
     ctx.lineWidth = lineWidth;
     trace();
     ctx.stroke();
@@ -211,7 +211,7 @@ function drawECG(
   };
 
   // ── 1 mV calibration pulse (classic L shape) ──────────────
-  const drawCalPulse = (x: number, baselineY: number, pxPerMm: number, color = "#334155") => {
+  const drawCalPulse = (x: number, baselineY: number, pxPerMm: number, color = "#000000") => {
     const gain = pxPerMm * MM_PER_MV;
     ctx.strokeStyle = color;
     ctx.lineWidth = 1.5;
@@ -228,8 +228,8 @@ function drawECG(
     if (mode === "all") {
       drawPaper(8, 8, W - 16, H - 16, 3.4, false);
     }
-    ctx.font = "600 12px ui-sans-serif, system-ui, sans-serif";
-    ctx.fillStyle = "#94a3b8";
+    ctx.font = "600 12px Inter, ui-sans-serif, system-ui, sans-serif";
+    ctx.fillStyle = "#64748b";
     const msg = signalFailed ? "Signal unavailable" : "Loading signal…";
     const tw = ctx.measureText(msg).width;
     ctx.fillText(msg, (W - tw) / 2, H / 2);
@@ -267,7 +267,7 @@ function drawECG(
 
         // Lead label
         ctx.font = "bold 10px ui-monospace, monospace";
-        ctx.fillStyle = isFl ? "#ef4444" : "#334155";
+        ctx.fillStyle = isFl ? "#d90429" : "#000000";
         ctx.fillText(lead, cx + 4, cy + 12);
 
         drawTrace(
@@ -278,12 +278,12 @@ function drawECG(
 
         // ⚠ ABNORMAL badge
         if (isFl && animProgress > 0.6) {
-          ctx.font = "bold 8px ui-sans-serif, system-ui, sans-serif";
+          ctx.font = "bold 8px Inter, ui-sans-serif, system-ui, sans-serif";
           const text = "\u26A0 ABNORMAL";
           const tw = ctx.measureText(text).width;
           const bx = cx + cellW - tw - 12;
           const by = cy + 2;
-          ctx.fillStyle = "rgba(239, 68, 68, 0.92)";
+          ctx.fillStyle = "rgba(217, 4, 41, 0.92)";
           ctx.beginPath();
           ctx.roundRect(bx, by, tw + 8, 14, 3);
           ctx.fill();
@@ -302,7 +302,7 @@ function drawECG(
     drawPaper(padX, rhythmY, W - padX * 2, rhythmH, rhythmPxPerMm, rhythmFl);
 
     ctx.font = "bold 10px ui-monospace, monospace";
-    ctx.fillStyle = rhythmFl ? "#ef4444" : "#334155";
+    ctx.fillStyle = rhythmFl ? "#d90429" : "#000000";
     ctx.fillText(
       `${rhythmLead} · ${Math.round(duration)} s`,
       padX + 4, rhythmY + 12,
@@ -310,7 +310,7 @@ function drawECG(
 
     // Time ticks (every second)
     ctx.font = "8px ui-monospace, monospace";
-    ctx.fillStyle = "#94a3b8";
+    ctx.fillStyle = "#64748b";
     for (let s = 0; s <= Math.floor(duration); s++) {
       const tx = padX + (s / duration) * (W - padX * 2);
       ctx.fillText(`${s}s`, Math.min(tx, W - padX - 14), rhythmY + rhythmH - 3);
@@ -338,9 +338,9 @@ function drawECG(
     // ⚠ ABNORMALITY DETECTED banner
     if (isFl && animProgress > 0.3) {
       const bannerH = 24;
-      ctx.fillStyle = "#ef4444";
+      ctx.fillStyle = "#d90429";
       ctx.fillRect(padX, padY - bannerH - 4, W - padX * 2, bannerH);
-      ctx.font = "bold 11px ui-sans-serif, system-ui, sans-serif";
+      ctx.font = "bold 11px Inter, ui-sans-serif, system-ui, sans-serif";
       ctx.fillStyle = "#ffffff";
       ctx.fillText(
         "\u26A0  ABNORMALITY DETECTED \u2014 " +
@@ -351,13 +351,13 @@ function drawECG(
     }
 
     // Lead label
-    ctx.font = "bold 14px ui-sans-serif, system-ui, sans-serif";
-    ctx.fillStyle = isFl ? "#ef4444" : "#1e293b";
+    ctx.font = "bold 14px Inter, ui-sans-serif, system-ui, sans-serif";
+    ctx.fillStyle = isFl ? "#d90429" : "#000000";
     ctx.fillText(`Lead ${lead}`, padX + 4, padY - (isFl ? 30 : 10));
 
     // Time markers every 1 s
     ctx.font = "9px ui-monospace, monospace";
-    ctx.fillStyle = "#94a3b8";
+    ctx.fillStyle = "#64748b";
     for (let s = 0; s <= Math.floor(duration); s++) {
       const tx = padX + (s / duration) * (W - padX * 2);
       ctx.fillText(`${s}s`, Math.min(tx, W - padX - 12), H - 8);
@@ -380,7 +380,7 @@ function drawECG(
       W - padX - pxPerMm * 11,
       padY + pxPerMm * 12,
       pxPerMm,
-      isFl ? "#ef4444" : "#334155",
+      isFl ? "#d90429" : "#000000",
     );
 
     // Trace
@@ -394,15 +394,15 @@ function drawECG(
     if (isFl && animProgress > 0.7) {
       const arrowX = padX + (W - padX * 2) * 0.35;
       const arrowY = padY + sigH * 0.12;
-      ctx.fillStyle = "#ef4444";
+      ctx.fillStyle = "#d90429";
       ctx.beginPath();
       ctx.moveTo(arrowX, arrowY);
       ctx.lineTo(arrowX - 5, arrowY - 10);
       ctx.lineTo(arrowX + 5, arrowY - 10);
       ctx.closePath();
       ctx.fill();
-      ctx.font = "bold 10px ui-sans-serif, system-ui, sans-serif";
-      ctx.fillStyle = "#ef4444";
+      ctx.font = "bold 10px Inter, ui-sans-serif, system-ui, sans-serif";
+      ctx.fillStyle = "#d90429";
       ctx.fillText("\u2191 Abnormal region", arrowX + 8, arrowY - 2);
     }
   }
@@ -499,8 +499,8 @@ export default function Waveform({
             onClick={() => switchMode("all")}
             className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium transition-all ${
               mode === "all"
-                ? "bg-medical-600 text-white shadow-sm"
-                : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                ? "bg-black text-white shadow-sm"
+                : "bg-black/10 text-black hover:bg-black/20"
             }`}
           >
             <Rows3 className="h-3.5 w-3.5" />
@@ -510,8 +510,8 @@ export default function Waveform({
             onClick={() => switchMode("zoom")}
             className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium transition-all ${
               mode === "zoom"
-                ? "bg-medical-600 text-white shadow-sm"
-                : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                ? "bg-black text-white shadow-sm"
+                : "bg-black/10 text-black hover:bg-black/20"
             }`}
           >
             <Maximize2 className="h-3.5 w-3.5" />
@@ -521,7 +521,7 @@ export default function Waveform({
 
         {hasFlags && (
           <div className="flex items-center gap-2">
-            <span className="flex items-center gap-1 rounded-full bg-red-50 px-2.5 py-1 text-[11px] font-semibold text-red-600 ring-1 ring-red-200">
+            <span className="flex items-center gap-1 rounded-full bg-brand/10 px-2.5 py-1 text-[11px] font-semibold text-red-700 ring-1 ring-brand/30">
               <Activity className="h-3 w-3" />
               {affectedLeads.length} lead{affectedLeads.length !== 1 ? "s" : ""} affected
             </span>
@@ -531,7 +531,7 @@ export default function Waveform({
 
       {/* Canvas */}
       <div className={`relative overflow-hidden rounded-xl border bg-white shadow-sm transition-shadow ${
-        hasFlags ? "border-red-200 shadow-red-100/50 ring-1 ring-red-100" : "border-medical-100"
+        hasFlags ? "border-brand/40 shadow-brand/10 ring-1 ring-brand/20" : "border-black/10"
       }`}>
         <canvas
           ref={canvasRef}
@@ -539,7 +539,7 @@ export default function Waveform({
         />
 
         {/* Calibration overlay */}
-        <div className="pointer-events-none absolute bottom-2 right-3 flex items-center gap-2 text-[10px] text-slate-400">
+        <div className="pointer-events-none absolute bottom-2 right-3 flex items-center gap-2 text-[10px] text-black/60">
           <span>{signal ? `${signal.fs} Hz` : "—"}</span>
           <span>·</span>
           <span>10 mm/mV</span>
@@ -550,8 +550,8 @@ export default function Waveform({
         {/* Flagged leads legend */}
         {hasFlags && affectedLeads.length > 0 && (
           <div className="pointer-events-none absolute bottom-2 left-3 flex items-center gap-1.5 text-[10px]">
-            <span className="inline-block h-2 w-2 rounded-sm bg-red-500" />
-            <span className="text-red-500 font-medium">
+            <span className="inline-block h-2 w-2 rounded-sm bg-brand" />
+            <span className="text-red-600 font-medium">
               {affectedLeads.join(", ")}
             </span>
           </div>
@@ -570,7 +570,7 @@ export default function Waveform({
             <div className="flex flex-wrap gap-1.5">
               {LEAD_GROUPS.map((group) => (
                 <div key={group.label} className="flex items-center gap-1">
-                  <span className="mr-1 text-[10px] font-semibold uppercase tracking-wider text-slate-400">
+                  <span className="mr-1 text-[10px] font-semibold uppercase tracking-wider text-black/60">
                     {group.label}
                   </span>
                   {group.indices.map((idx) => {
@@ -583,15 +583,15 @@ export default function Waveform({
                         onClick={() => setSelectedLead(lead)}
                         className={`relative rounded-md px-2.5 py-1 text-xs font-medium transition-all ${
                           isSel
-                            ? "bg-medical-600 text-white shadow-sm"
+                            ? "bg-black text-white shadow-sm"
                             : isFlagged
-                              ? "bg-red-50 text-red-700 ring-1 ring-red-200 hover:bg-red-100"
-                              : "bg-slate-50 text-slate-600 hover:bg-slate-100"
+                              ? "bg-brand/10 text-red-700 ring-1 ring-brand/30 hover:bg-brand/20"
+                              : "bg-black/5 text-black hover:bg-black/15"
                         }`}
                       >
                         {lead}
                         {isFlagged && !isSel && (
-                          <span className="absolute -top-0.5 -right-0.5 h-1.5 w-1.5 rounded-full bg-red-500" />
+                          <span className="absolute -top-0.5 -right-0.5 h-1.5 w-1.5 rounded-full bg-brand" />
                         )}
                       </button>
                     );

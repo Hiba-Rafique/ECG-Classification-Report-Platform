@@ -25,9 +25,9 @@ export default function EcgLine({
     >
       <defs>
         <linearGradient id="ecg-grad" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stopColor="#dc2626" stopOpacity="0" />
-          <stop offset="20%" stopColor="#dc2626" stopOpacity="1" />
-          <stop offset="100%" stopColor="#dc2626" stopOpacity="1" />
+          <stop offset="0%" stopColor="#d90429" stopOpacity="0" />
+          <stop offset="20%" stopColor="#d90429" stopOpacity="1" />
+          <stop offset="100%" stopColor="#d90429" stopOpacity="1" />
         </linearGradient>
       </defs>
       <motion.path

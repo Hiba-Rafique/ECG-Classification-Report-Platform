@@ -65,7 +65,7 @@ function MeasurementsTable({ report }: { report: ClinicalReport }) {
 
   return (
     <div>
-      <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-slate-500">
+      <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-black/70">
         <Ruler className="h-3.5 w-3.5" />
         Measurements
       </div>
@@ -73,12 +73,12 @@ function MeasurementsTable({ report }: { report: ClinicalReport }) {
         {rows.map((r) => (
           <div
             key={r.label}
-            className="flex items-baseline justify-between gap-2 border-b border-slate-100 py-1.5"
+            className="flex items-baseline justify-between gap-2 border-b border-black/10 py-1.5"
           >
-            <dt className="shrink-0 text-xs text-slate-500">{r.label}</dt>
+            <dt className="shrink-0 text-xs text-black/70">{r.label}</dt>
             <dd
               className={`text-right text-xs font-semibold tabular-nums ${
-                r.available ? "text-slate-800" : "italic text-slate-300"
+                r.available ? "text-black" : "italic text-black/50"
               }`}
             >
               {r.value}
@@ -86,7 +86,7 @@ function MeasurementsTable({ report }: { report: ClinicalReport }) {
           </div>
         ))}
       </dl>
-      <p className="mt-1.5 text-[10px] italic text-slate-400">
+      <p className="mt-1.5 text-[10px] italic text-black/60">
         Values reported as unavailable were not computable from the recording and were
         deliberately not filled in.
       </p>
@@ -102,7 +102,7 @@ function CategoryScores({ report }: { report: ClinicalReport }) {
 
   return (
     <div>
-      <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-slate-500">
+      <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-black/70">
         <Activity className="h-3.5 w-3.5" />
         Diagnostic Category Scores
       </div>
@@ -119,29 +119,29 @@ function CategoryScores({ report }: { report: ClinicalReport }) {
               transition={{ delay: i * 0.06 }}
             >
               <div className="flex items-baseline justify-between gap-2">
-                <span className={`text-xs font-medium ${flagged ? "text-slate-800" : "text-slate-500"}`}>
+                <span className={`text-xs font-medium ${flagged ? "text-black" : "text-black/70"}`}>
                   {CLASS_LABEL[s]}
                 </span>
                 <span
                   className={`text-xs font-bold tabular-nums ${
-                    flagged ? "text-red-600" : "text-slate-400"
+                    flagged ? "text-brand" : "text-black/60"
                   }`}
                 >
                   {Math.round(p * 100)}%
                 </span>
               </div>
-              <div className="relative mt-1 h-1.5 overflow-hidden rounded-full bg-slate-100">
+              <div className="relative mt-1 h-1.5 overflow-hidden rounded-full bg-black/10">
                 <motion.div
                   initial={{ width: 0 }}
                   animate={{ width: `${Math.min(p, 1) * 100}%` }}
                   transition={{ duration: 0.6, delay: i * 0.06 + 0.15 }}
                   className={`h-full rounded-full ${
-                    flagged ? "bg-red-500" : "bg-slate-300"
+                    flagged ? "bg-brand" : "bg-black/40"
                   }`}
                 />
                 {/* reporting-threshold marker */}
                 <div
-                  className="absolute top-[-2px] h-[10px] w-px bg-slate-400"
+                  className="absolute top-[-2px] h-[10px] w-px bg-black/60"
                   style={{ left: `${Math.min(t, 1) * 100}%` }}
                   title={`reporting threshold ${Math.round(t * 100)}%`}
                 />
@@ -150,7 +150,7 @@ function CategoryScores({ report }: { report: ClinicalReport }) {
           );
         })}
       </div>
-      <p className="mt-1.5 text-[10px] italic text-slate-400">
+      <p className="mt-1.5 text-[10px] italic text-black/60">
         Five categories scored independently; the tick marks the reporting threshold.
       </p>
     </div>
@@ -169,7 +169,7 @@ function BulletList({ items = [], icon: Icon, title }: {
 
   return (
     <div>
-      <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-slate-500">
+      <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-black/70">
         <Icon className="h-3.5 w-3.5" />
         {title}
       </div>
@@ -180,9 +180,9 @@ function BulletList({ items = [], icon: Icon, title }: {
             initial={{ opacity: 0, x: -6 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.08 * i }}
-            className="flex items-start gap-2 rounded-lg bg-white p-2 text-[13px] leading-snug text-slate-700 ring-1 ring-slate-100"
+            className="flex items-start gap-2 rounded-lg bg-white p-2 text-[13px] leading-snug text-black ring-1 ring-black/10"
           >
-            <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-medical-400" />
+            <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand" />
             {item}
           </motion.li>
         ))}
@@ -204,15 +204,15 @@ function Narrative({ report }: { report: ClinicalReport }) {
 
   return (
     <div>
-      <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-slate-500">
+      <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-black/70">
         <Stethoscope className="h-3.5 w-3.5" />
         Interpretive Report
       </div>
       <div className="mt-2 space-y-3">
         {head.map((s) => (
           <div key={s.key}>
-            <p className="text-xs font-bold text-slate-700">{s.title}</p>
-            <p className="mt-1 text-[13px] leading-relaxed text-slate-600">
+            <p className="text-xs font-bold text-black">{s.title}</p>
+            <p className="mt-1 text-[13px] leading-relaxed text-black/80">
               {report.narrative[s.key]}
             </p>
           </div>
@@ -222,7 +222,7 @@ function Narrative({ report }: { report: ClinicalReport }) {
         <>
           <button
             onClick={() => setExpanded(!expanded)}
-            className="mt-2 flex items-center gap-1.5 text-[11px] font-semibold text-medical-700 transition-colors hover:text-medical-800"
+            className="mt-2 flex items-center gap-1.5 text-[11px] font-semibold text-brand transition-colors hover:text-black"
           >
             {expanded ? <ChevronUp className="h-3 w-3" /> : <ChevronDown className="h-3 w-3" />}
             {expanded ? "Show less" : `Show ${tail.length} more section${tail.length > 1 ? "s" : ""}`}
@@ -239,8 +239,8 @@ function Narrative({ report }: { report: ClinicalReport }) {
                 <div className="mt-2 space-y-3">
                   {tail.map((s) => (
                     <div key={s.key}>
-                      <p className="text-xs font-bold text-slate-700">{s.title}</p>
-                      <p className="mt-1 text-[13px] leading-relaxed text-slate-600">
+                      <p className="text-xs font-bold text-black">{s.title}</p>
+                      <p className="mt-1 text-[13px] leading-relaxed text-black/80">
                         {report.narrative[s.key]}
                       </p>
                     </div>
@@ -301,15 +301,15 @@ export default function ClinicalSummary({ result }: { result: ECGResult }) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
-      className="rounded-xl border border-slate-200 bg-white shadow-sm"
+      className="rounded-xl border border-black/10 bg-white shadow-sm"
     >
       {/* Header — title + PDF download */}
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 px-5 py-3">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-black/10 px-5 py-3">
         <div>
-          <h2 className="font-display text-sm font-bold text-slate-900">
+          <h2 className="font-display text-sm font-bold text-black">
             Clinical Report
           </h2>
-          <p className="text-[11px] text-slate-400">
+          <p className="text-[11px] text-black/60">
             {report
               ? `Report CL-${result.id} · ${
                   report.generated_by === "ai" ? "AI-assisted" : "Template"
@@ -320,7 +320,7 @@ export default function ClinicalSummary({ result }: { result: ECGResult }) {
 
         <div className="flex items-center gap-2">
           {loading && (
-            <span className="flex items-center gap-1.5 text-xs text-medical-700">
+            <span className="flex items-center gap-1.5 text-xs text-brand">
               <Loader2 className="h-3.5 w-3.5 animate-spin" />
               Generating…
             </span>
@@ -329,7 +329,7 @@ export default function ClinicalSummary({ result }: { result: ECGResult }) {
             <button
               onClick={() => void downloadPdf()}
               disabled={downloading}
-              className="flex items-center gap-1.5 rounded-lg bg-medical-700 px-3 py-1.5 text-xs font-semibold text-white shadow-sm transition-colors hover:bg-medical-800 disabled:opacity-60"
+              className="flex items-center gap-1.5 rounded-lg bg-black px-3 py-1.5 text-xs font-semibold text-white shadow-sm transition-colors hover:bg-brand disabled:opacity-60"
               title="Download the one-page PDF of this report"
             >
               {downloading ? (
@@ -366,7 +366,7 @@ export default function ClinicalSummary({ result }: { result: ECGResult }) {
                   initial={{ opacity: 0.3 }}
                   animate={{ opacity: [0.3, 0.7, 0.3] }}
                   transition={{ repeat: Infinity, duration: 1.4, delay: i * 0.15 }}
-                  className="h-3 rounded-full bg-slate-100"
+                  className="h-3 rounded-full bg-black/10"
                   style={{ width: `${90 - i * 12}%` }}
                 />
               ))}
@@ -383,7 +383,7 @@ export default function ClinicalSummary({ result }: { result: ECGResult }) {
             </p>
             <button
               onClick={() => void generate()}
-              className="flex items-center gap-1 rounded-lg bg-red-600 px-3 py-1 text-xs font-semibold text-white hover:bg-red-700"
+              className="flex items-center gap-1 rounded-lg bg-black px-3 py-1 text-xs font-semibold text-white transition-colors hover:bg-brand"
             >
               <RefreshCw className="h-3 w-3" />
               Retry
@@ -416,13 +416,13 @@ export default function ClinicalSummary({ result }: { result: ECGResult }) {
               <Narrative report={report} />
 
               {/* Footer */}
-              <div className="flex flex-wrap items-center justify-between gap-2 border-t border-slate-100 pt-3">
-                <p className="max-w-[75%] text-[10px] italic leading-relaxed text-slate-400">
+              <div className="flex flex-wrap items-center justify-between gap-2 border-t border-black/10 pt-3">
+                <p className="max-w-[75%] text-[10px] italic leading-relaxed text-black/60">
                   {report.disclaimer}
                 </p>
                 <div className="flex items-center gap-1.5">
                   {report.generated_by === "template" && (
-                    <span className="rounded bg-slate-100 px-2 py-0.5 text-[10px] text-slate-400">
+                    <span className="rounded bg-black/10 px-2 py-0.5 text-[10px] text-black/70">
                       Template mode
                     </span>
                   )}

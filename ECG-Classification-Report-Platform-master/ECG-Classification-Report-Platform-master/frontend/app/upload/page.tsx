@@ -93,14 +93,14 @@ export default function UploadPage() {
   return (
     <div className="min-h-screen">
       {/* ── Header ─────────────────────────────────────────── */}
-      <header className="sticky top-0 z-40 border-b border-slate-200/70 bg-white/80 backdrop-blur-md">
+      <header className="sticky top-0 z-40 border-b border-white/10 bg-black">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3.5 sm:px-6">
           <Link
             href="/"
-            className="flex items-center gap-2 text-slate-400 transition-colors hover:text-medical-700"
+            className="flex items-center gap-2 text-white/70 transition-colors hover:text-white"
           >
             <ArrowLeft className="h-4 w-4" />
-            <span className="font-display text-base font-bold tracking-tight text-slate-900">
+            <span className="font-display text-base font-bold tracking-tight text-white">
               CardioLens
             </span>
           </Link>
@@ -109,10 +109,10 @@ export default function UploadPage() {
 
       <main className="mx-auto max-w-xl px-4 pb-20 pt-10 sm:px-6">
         <div className="text-center">
-          <h1 className="font-display text-2xl font-bold tracking-tight text-slate-900">
+          <h1 className="font-display text-2xl font-bold tracking-tight text-white">
             Upload an ECG recording
           </h1>
-          <p className="mt-2 text-sm text-slate-500">
+          <p className="mt-2 text-sm text-white">
             12-lead · 500 Hz · 10 seconds — analyzed in one pass
           </p>
         </div>
@@ -142,8 +142,8 @@ export default function UploadPage() {
                 onClick={() => inputRef.current?.click()}
                 animate={{
                   scale: dragging ? 1.02 : 1,
-                  borderColor: dragging ? "#4f46e5" : "#c7d2fe",
-                  backgroundColor: dragging ? "#eef2ff" : "#ffffff",
+                  borderColor: dragging ? "#000000" : "#7a0c1a",
+                  backgroundColor: dragging ? "#f6dde2" : "#ffffff",
                 }}
                 whileHover={{ scale: 1.01 }}
                 className="ecg-grid mt-8 flex cursor-pointer flex-col items-center justify-center gap-3 rounded-xl border-2 border-dashed p-12 transition-colors"
@@ -152,14 +152,14 @@ export default function UploadPage() {
                   animate={dragging ? { y: [0, -8, 0] } : {}}
                   transition={{ repeat: Infinity, duration: 1.2 }}
                 >
-                  <UploadCloud className="h-10 w-10 text-medical-500" />
+                  <UploadCloud className="h-10 w-10 text-brand" />
                 </motion.div>
-                <p className="font-medium text-slate-700">
+                <p className="font-medium text-black">
                   {dragging
                     ? "Drop the file to analyze"
                     : "Drag & drop your ECG file here"}
                 </p>
-                <p className="text-xs text-slate-400">or click to browse</p>
+                <p className="text-xs text-black/60">or click to browse</p>
                 <input
                   ref={inputRef}
                   type="file"
@@ -172,7 +172,7 @@ export default function UploadPage() {
                   }}
                 />
               </motion.div>
-              <p className="mt-3 text-center text-xs text-slate-400">
+              <p className="mt-3 text-center text-xs text-white">
                 WFDB (select .dat + .hea together), CSV, or EDF — up to 50 MB
               </p>
             </motion.div>
@@ -186,13 +186,13 @@ export default function UploadPage() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}
               transition={{ duration: 0.3 }}
-              className="mt-8 rounded-xl border border-slate-200 bg-white p-8 text-center shadow-sm"
+              className="mt-8 rounded-xl border border-black/10 bg-white p-8 text-center shadow-sm"
             >
-              <Loader2 className="mx-auto h-10 w-10 animate-spin text-medical-600" />
-              <p className="mt-4 font-medium text-slate-700">
+              <Loader2 className="mx-auto h-10 w-10 animate-spin text-brand" />
+              <p className="mt-4 font-medium text-black">
                 Uploading &amp; analyzing…
               </p>
-              <p className="mt-1 truncate text-xs text-slate-400">{fileName}</p>
+              <p className="mt-1 truncate text-xs text-black/60">{fileName}</p>
               <EcgLine
                 height={40}
                 className="mx-auto mt-6 w-full max-w-sm opacity-60"
@@ -208,13 +208,13 @@ export default function UploadPage() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}
               transition={{ duration: 0.3 }}
-              className="mt-8 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm"
+              className="mt-8 overflow-hidden rounded-xl border border-black/10 bg-white shadow-sm"
             >
-              <div className="border-b border-slate-100 bg-slate-50/60 px-5 py-3">
-                <p className="text-sm font-semibold text-slate-800">
+              <div className="border-b border-black/10 bg-black/5 px-5 py-3">
+                <p className="text-sm font-semibold text-black">
                   Analyzing your recording
                 </p>
-                <p className="truncate text-xs text-slate-400">{fileName}</p>
+                <p className="truncate text-xs text-black/60">{fileName}</p>
               </div>
 
               <div className="px-5 py-5">
@@ -232,21 +232,21 @@ export default function UploadPage() {
                         className="flex items-start gap-3"
                       >
                         {done ? (
-                          <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-500" />
+                          <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
                         ) : active ? (
-                          <Loader2 className="mt-0.5 h-4 w-4 shrink-0 animate-spin text-medical-600" />
+                          <Loader2 className="mt-0.5 h-4 w-4 shrink-0 animate-spin text-brand" />
                         ) : (
-                          <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-slate-200" />
+                          <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-black/20" />
                         )}
                         <div>
                           <p
                             className={`text-sm font-medium ${
-                              done || active ? "text-slate-800" : "text-slate-400"
+                              done || active ? "text-black" : "text-black/60"
                             }`}
                           >
                             {s.label}
                           </p>
-                          <p className="mt-0.5 text-xs leading-snug text-slate-400">
+                          <p className="mt-0.5 text-xs leading-snug text-black/60">
                             {s.desc}
                           </p>
                         </div>
@@ -256,13 +256,13 @@ export default function UploadPage() {
                 </div>
 
                 {/* Progress bar */}
-                <div className="mt-6 h-1.5 overflow-hidden rounded-full bg-slate-100">
+                <div className="mt-6 h-1.5 overflow-hidden rounded-full bg-black/10">
                   <motion.div
                     animate={{
                       width: `${Math.min((stage / STAGES.length) * 100, 100)}%`,
                     }}
                     transition={{ duration: 0.5, ease: "easeOut" }}
-                    className="h-full rounded-full bg-medical-600"
+                    className="h-full rounded-full bg-brand"
                   />
                 </div>
               </div>
@@ -279,13 +279,13 @@ export default function UploadPage() {
               transition={{ duration: 0.3 }}
               className="mt-8 rounded-xl border border-red-200 bg-red-50 p-8 text-center"
             >
-              <FileWarning className="mx-auto h-9 w-9 text-red-500" />
+              <FileWarning className="mx-auto h-9 w-9 text-red-600" />
               <p className="mt-3 text-sm font-medium text-red-700">
                 {errorMsg}
               </p>
               <button
                 onClick={reset}
-                className="mt-5 inline-flex items-center gap-1.5 rounded-lg bg-red-600 px-4 py-2 text-xs font-semibold text-white transition-colors hover:bg-red-700"
+                className="mt-5 inline-flex items-center gap-1.5 rounded-lg bg-black px-4 py-2 text-xs font-semibold text-white transition-colors hover:bg-brand"
               >
                 <RefreshCw className="h-3.5 w-3.5" />
                 Try again

@@ -11,13 +11,13 @@ import EcgLine from "@/components/EcgLine";
 
 function EcgRecordingMock() {
   return (
-    <div className="w-full overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl shadow-slate-200/70">
+    <div className="w-full overflow-hidden rounded-2xl border border-black/10 bg-white shadow-xl shadow-black/30">
       {/* window bar */}
-      <div className="flex items-center gap-1.5 border-b border-slate-100 bg-slate-50/70 px-4 py-2.5">
-        <span className="h-2 w-2 rounded-full bg-slate-300" />
-        <span className="h-2 w-2 rounded-full bg-slate-300" />
-        <span className="h-2 w-2 rounded-full bg-slate-300" />
-        <span className="ml-2 truncate text-[10px] font-medium text-slate-400">
+      <div className="flex items-center gap-1.5 border-b border-black/10 bg-black/5 px-4 py-2.5">
+        <span className="h-2 w-2 rounded-full bg-black/30" />
+        <span className="h-2 w-2 rounded-full bg-black/30" />
+        <span className="h-2 w-2 rounded-full bg-black/30" />
+        <span className="ml-2 truncate text-[10px] font-medium text-black/60">
           recording_001.dat
         </span>
       </div>
@@ -29,12 +29,12 @@ function EcgRecordingMock() {
         <EcgLine height={30} delay={1.7} className="w-full opacity-30" />
       </div>
 
-      <div className="flex items-center justify-between border-t border-slate-100 px-4 py-2">
-        <span className="text-[10px] font-medium text-slate-400">
+      <div className="flex items-center justify-between border-t border-black/10 px-4 py-2">
+        <span className="text-[10px] font-medium text-black/60">
           12-lead · 500 Hz
         </span>
-        <span className="flex items-center gap-1.5 text-[10px] font-medium text-slate-400">
-          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-medical-500" />
+        <span className="flex items-center gap-1.5 text-[10px] font-medium text-black/60">
+          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-brand" />
           10 s recording
         </span>
       </div>
@@ -44,27 +44,27 @@ function EcgRecordingMock() {
 
 function ClassificationMock() {
   return (
-    <div className="w-full overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl shadow-slate-200/70">
-      <div className="flex items-center justify-between border-b border-slate-100 bg-slate-50/70 px-4 py-2.5">
-        <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-400">
+    <div className="w-full overflow-hidden rounded-2xl border border-black/10 bg-white shadow-xl shadow-black/30">
+      <div className="flex items-center justify-between border-b border-black/10 bg-black/5 px-4 py-2.5">
+        <span className="text-[10px] font-semibold uppercase tracking-wider text-black/60">
           CNN Analysis
         </span>
-        <span className="rounded-full bg-red-50 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wide text-red-600 ring-1 ring-red-200">
+        <span className="animate-badge-pulse rounded-full bg-brand/10 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wide text-brand ring-1 ring-brand/30">
           Abnormal
         </span>
       </div>
 
       <div className="space-y-3 px-4 py-4">
         {/* Top finding */}
-        <div className="rounded-xl border border-red-100 bg-red-50/50 p-3">
+        <div className="rounded-xl border border-brand/20 bg-brand/5 p-3">
           <div className="flex items-center justify-between gap-2">
-            <span className="text-xs font-semibold text-red-700">
+            <span className="text-xs font-semibold text-brand">
               Myocardial Infarction
             </span>
             <motion.span
               animate={{ scale: [1, 1.07, 1] }}
               transition={{ duration: 1.8, repeat: Infinity }}
-              className="rounded bg-red-600 px-1.5 py-0.5 text-[10px] font-bold tabular-nums text-white"
+              className="rounded bg-brand px-1.5 py-0.5 text-[10px] font-bold tabular-nums text-white"
             >
               87%
             </motion.span>
@@ -78,42 +78,45 @@ function ClassificationMock() {
               width="66"
               height="40"
               rx="4"
-              fill="rgba(239,68,68,0.07)"
-              stroke="rgba(239,68,68,0.4)"
+              fill="rgba(217,4,41,0.07)"
+              stroke="rgba(217,4,41,0.45)"
               strokeWidth="1"
               strokeDasharray="3 2.5"
             />
-            <path
+            <motion.path
               d="M0,30 L46,30 L53,26 L60,30 L70,30 L75,33 L81,10 L87,40 L92,24 L112,24 L120,24 L128,14 L136,24 L142,30 L200,30"
               fill="none"
-              stroke="#ef4444"
+              stroke="#d90429"
               strokeWidth="1.8"
               strokeLinecap="round"
               strokeLinejoin="round"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ duration: 2.6, repeat: Infinity, ease: "linear" }}
             />
           </svg>
 
-          <div className="mt-2 h-1 overflow-hidden rounded-full bg-red-100">
+          <div className="mt-2 h-1 overflow-hidden rounded-full bg-brand/20">
             <motion.div
               initial={{ width: 0 }}
               whileInView={{ width: "87%" }}
               viewport={{ once: true }}
               transition={{ duration: 1, delay: 0.4 }}
-              className="h-full rounded-full bg-red-500"
+              className="h-full rounded-full bg-brand"
             />
           </div>
         </div>
 
         {/* Runner-up class */}
-        <div className="rounded-xl border border-slate-100 bg-slate-50/50 p-3">
+        <div className="rounded-xl border border-black/10 bg-black/5 p-3">
           <div className="flex items-center justify-between gap-2">
-            <span className="text-xs font-semibold text-slate-400">Normal</span>
-            <span className="rounded bg-slate-200 px-1.5 py-0.5 text-[10px] font-bold tabular-nums text-slate-400">
+            <span className="text-xs font-semibold text-black/60">Normal</span>
+            <span className="rounded bg-black/10 px-1.5 py-0.5 text-[10px] font-bold tabular-nums text-black/60">
               6%
             </span>
           </div>
-          <div className="mt-2 h-1 overflow-hidden rounded-full bg-slate-200">
-            <div className="h-full w-[6%] rounded-full bg-slate-300" />
+          <div className="mt-2 h-1 overflow-hidden rounded-full bg-black/10">
+            <div className="h-full w-[6%] rounded-full bg-black/30" />
           </div>
         </div>
       </div>
@@ -123,13 +126,13 @@ function ClassificationMock() {
 
 function ReportMock() {
   return (
-    <div className="w-full overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl shadow-slate-200/70">
-      <div className="flex items-center justify-between border-b border-slate-100 bg-slate-50/70 px-4 py-2.5">
-        <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-400">
+    <div className="w-full overflow-hidden rounded-2xl border border-black/10 bg-white shadow-xl shadow-black/30">
+      <div className="flex items-center justify-between border-b border-black/10 bg-black/5 px-4 py-2.5">
+        <span className="text-[10px] font-semibold uppercase tracking-wider text-black/60">
           Clinical Summary
         </span>
-        <span className="flex items-center gap-1 rounded-full bg-red-50 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wide text-red-600 ring-1 ring-red-200">
-          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-red-500" />
+        <span className="flex items-center gap-1 animate-badge-pulse rounded-full bg-brand/10 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wide text-brand ring-1 ring-brand/30">
+          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-brand" />
           Review now
         </span>
       </div>
@@ -137,43 +140,43 @@ function ReportMock() {
       <div className="space-y-2.5 px-4 py-4">
         {/* Summary skeleton */}
         <div className="space-y-1.5">
-          <div className="h-2 w-full rounded-full bg-slate-100" />
-          <div className="h-2 w-4/5 rounded-full bg-slate-100" />
+          <div className="h-2 w-full rounded-full bg-black/10" />
+          <div className="h-2 w-4/5 rounded-full bg-black/10" />
         </div>
 
         {/* Findings */}
-        <div className="flex items-center justify-between rounded-lg border border-slate-100 px-2.5 py-2">
-          <span className="text-[11px] font-semibold text-slate-700">
+        <div className="flex items-center justify-between rounded-lg border border-black/10 px-2.5 py-2">
+          <span className="text-[11px] font-semibold text-black">
             Myocardial Infarction
           </span>
-          <span className="text-[11px] font-bold tabular-nums text-red-600">
+          <span className="text-[11px] font-bold tabular-nums text-brand">
             87%
           </span>
         </div>
-        <div className="flex items-center justify-between rounded-lg border border-slate-100 px-2.5 py-2">
-          <span className="text-[11px] font-semibold text-slate-500">
+        <div className="flex items-center justify-between rounded-lg border border-black/10 px-2.5 py-2">
+          <span className="text-[11px] font-semibold text-black/70">
             ST/T Abnormality
           </span>
-          <span className="text-[11px] font-bold tabular-nums text-slate-400">
+          <span className="text-[11px] font-bold tabular-nums text-black/60">
             24%
           </span>
         </div>
 
         {/* Recommended action */}
-        <div className="flex items-start gap-2 rounded-lg bg-medical-50 px-2.5 py-2">
-          <span className="mt-0.5 text-[10px] font-bold text-medical-700">1</span>
+        <div className="flex items-start gap-2 rounded-lg bg-brand/5 px-2.5 py-2">
+          <span className="mt-0.5 text-[10px] font-bold text-brand">1</span>
           <div className="flex-1 space-y-1 pt-0.5">
-            <div className="h-1.5 w-full rounded-full bg-medical-100" />
-            <div className="h-1.5 w-3/5 rounded-full bg-medical-100" />
+            <div className="h-1.5 w-full rounded-full bg-brand/25" />
+            <div className="h-1.5 w-3/5 rounded-full bg-brand/25" />
           </div>
         </div>
       </div>
 
-      <div className="border-t border-slate-100 px-4 py-3">
+      <div className="border-t border-black/10 px-4 py-3">
         <motion.span
           animate={{ scale: [1, 1.02, 1] }}
           transition={{ duration: 2.4, repeat: Infinity }}
-          className="flex w-full items-center justify-center gap-1.5 rounded-lg bg-medical-700 py-1.5 text-[11px] font-semibold text-white shadow-sm"
+          className="flex w-full items-center justify-center gap-1.5 rounded-lg bg-black py-1.5 text-[11px] font-semibold text-white shadow-sm transition-colors hover:bg-brand"
         >
           <FileDown className="h-3 w-3" />
           Export PDF
@@ -207,14 +210,14 @@ export default function WorkflowShowcase() {
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.15 + i * 0.12 }}
+                transition={{ delay: 0.15 + i * 0.15, ease: "easeInOut" }}
                 className="mb-3.5 flex items-center gap-2.5"
               >
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-medical-700 text-white shadow-sm">
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-black text-white shadow-sm">
                   <step.icon className="h-3.5 w-3.5" />
                 </span>
-                <p className="text-[13px] font-semibold text-slate-900">
-                  <span className="mr-1.5 font-display text-medical-300">
+                <p className="text-[13px] font-semibold text-white">
+                  <span className="mr-1.5 font-display text-white">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   {step.title}
@@ -234,21 +237,21 @@ export default function WorkflowShowcase() {
                 <div
                   className={
                     isCenter
-                      ? "relative md:scale-[1.05] md:drop-shadow-[0_22px_40px_rgba(220,38,38,0.16)]"
+                      ? "relative md:scale-[1.05] md:drop-shadow-[0_22px_40px_rgba(0,0,0,0.35)]"
                       : "relative"
                   }
                 >
                   {isCenter && (
                     <div
                       aria-hidden
-                      className="absolute inset-x-3 -inset-y-6 -z-10 rounded-[2rem] bg-medical-100/70 blur-2xl"
+                      className="absolute inset-x-3 -inset-y-6 -z-10 rounded-[2rem] bg-white/25 blur-2xl"
                     />
                   )}
                   <motion.div
                     initial={{ opacity: 0, y: 24, rotate: ROTATIONS[i] }}
                     whileInView={{ opacity: 1, y: 0, rotate: ROTATIONS[i] }}
                     viewport={{ once: true, margin: "-40px" }}
-                    transition={{ duration: 0.55, delay: 0.15 + i * 0.12 }}
+                    transition={{ duration: 0.55, delay: 0.15 + i * 0.15, ease: "easeInOut" }}
                     whileHover={{ rotate: 0, scale: 1.02 }}
                   >
                     <step.Mock />
@@ -261,7 +264,7 @@ export default function WorkflowShowcase() {
                 <motion.span
                   animate={{ x: [0, 5, 0] }}
                   transition={{ duration: 1.6, repeat: Infinity, delay: i * 0.5 }}
-                  className="absolute -right-4 top-[46%] z-10 hidden h-8 w-8 items-center justify-center rounded-full border border-slate-200 bg-white text-medical-500 shadow-sm md:flex"
+                  className="absolute -right-4 top-[46%] z-10 hidden h-8 w-8 items-center justify-center rounded-full border border-black/10 bg-white text-black shadow-sm md:flex"
                 >
                   <ChevronRight className="h-4 w-4" />
                 </motion.span>

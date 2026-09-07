@@ -13,15 +13,15 @@ export default function ResultsPanel({ result }: { result: ECGResult }) {
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="rounded-xl border border-slate-200 bg-white shadow-sm"
+      className="rounded-xl border border-black/10 bg-white shadow-sm"
     >
       {/* Header row */}
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 px-5 py-3">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-black/10 px-5 py-3">
         <div>
-          <h2 className="font-display text-sm font-bold text-slate-900">
+          <h2 className="font-display text-sm font-bold text-black">
             Model Output
           </h2>
-          <p className="text-[11px] text-slate-400">
+          <p className="text-[11px] text-black/60">
             CNN superclass prediction · result #{result.id}
           </p>
         </div>
@@ -33,7 +33,7 @@ export default function ResultsPanel({ result }: { result: ECGResult }) {
           transition={{ type: "spring", stiffness: 300, damping: 20, delay: 0.2 }}
           className={`flex items-center gap-1.5 rounded-full px-3.5 py-1 text-xs font-bold uppercase tracking-wide ${
             abnormal
-              ? "bg-red-600 text-white shadow-md shadow-red-200"
+              ? "bg-brand text-white shadow-md shadow-brand/30"
               : "bg-emerald-100 text-emerald-700"
           }`}
         >
@@ -48,17 +48,17 @@ export default function ResultsPanel({ result }: { result: ECGResult }) {
 
       <div className="p-5">
         {/* Patient meta */}
-        <div className="flex flex-wrap gap-x-5 gap-y-1.5 text-xs text-slate-500">
+        <div className="flex flex-wrap gap-x-5 gap-y-1.5 text-xs text-black/70">
           <span className="flex items-center gap-1.5">
-            <User className="h-3.5 w-3.5 text-medical-400" />
+            <User className="h-3.5 w-3.5 text-brand" />
             {result.patient_id}
           </span>
           <span className="flex items-center gap-1.5 truncate max-w-[180px]">
-            <FileText className="h-3.5 w-3.5 text-medical-400" />
+            <FileText className="h-3.5 w-3.5 text-brand" />
             {result.filename}
           </span>
           <span className="flex items-center gap-1.5">
-            <Clock className="h-3.5 w-3.5 text-medical-400" />
+            <Clock className="h-3.5 w-3.5 text-brand" />
             {new Date(result.created_at).toLocaleString()}
           </span>
         </div>
@@ -94,10 +94,10 @@ export default function ResultsPanel({ result }: { result: ECGResult }) {
                     initial={{ opacity: 0, x: -12 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.15 + i * 0.08 }}
-                    className="group rounded-xl border border-medical-100 bg-gradient-to-r from-medical-50/60 to-white p-3 transition-shadow hover:shadow-md"
+                    className="group rounded-xl border border-brand/20 bg-gradient-to-r from-brand/5 to-white p-3 transition-shadow hover:shadow-md"
                   >
                     <div className="flex items-center justify-between gap-3">
-                      <span className="text-sm font-semibold text-slate-800">
+                      <span className="text-sm font-semibold text-black">
                         {formatFlagName(flag)}
                       </span>
                       <div className="flex items-center gap-2">
@@ -107,18 +107,18 @@ export default function ResultsPanel({ result }: { result: ECGResult }) {
                               ? "bg-red-100 text-red-700"
                               : strength === "moderate"
                                 ? "bg-amber-100 text-amber-700"
-                                : "bg-slate-100 text-slate-500"
+                                : "bg-black/10 text-black/70"
                           }`}
                         >
                           {strength}
                         </span>
-                        <span className="rounded-md bg-red-600 px-2 py-0.5 text-xs font-bold tabular-nums text-white">
+                        <span className="rounded-md bg-brand px-2 py-0.5 text-xs font-bold tabular-nums text-white">
                           {pct}%
                         </span>
                       </div>
                     </div>
                     {/* Confidence bar */}
-                    <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-medical-100">
+                    <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-black/10">
                       <motion.div
                         initial={{ width: 0 }}
                         animate={{ width: `${pct}%` }}
@@ -129,10 +129,10 @@ export default function ResultsPanel({ result }: { result: ECGResult }) {
                         }}
                         className={`h-full rounded-full ${
                           conf >= 0.5
-                            ? "bg-red-500"
+                            ? "bg-brand"
                             : conf >= 0.25
                               ? "bg-amber-400"
-                              : "bg-slate-300"
+                              : "bg-black/40"
                         }`}
                       />
                     </div>

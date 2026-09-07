@@ -1,20 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Inter:wght@400;500;600&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-jakarta), var(--font-inter), sans-serif;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Outfit', 'Inter', sans-serif;
 
-  /* Medical red palette — classic ECG paper aesthetic */
-  --color-medical-50: #fef2f2;
-  --color-medical-100: #fee2e2;
-  --color-medical-200: #fecaca;
-  --color-medical-300: #fca5a5;
-  --color-medical-400: #f87171;
-  --color-medical-500: #ef4444;
-  --color-medical-600: #dc2626;
-  --color-medical-700: #b91c1c;
-  --color-medical-800: #991b1b;
-  --color-medical-900: #7f1d1d;
+  /* Brand red — dark crimson page background */
+  --color-brand: #7a0c1a;
 
   --animate-ecg: ecg-sweep 2.8s linear infinite;
   --animate-pulse-ring: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
@@ -24,6 +16,7 @@
   --animate-shimmer: shimmer 2s linear infinite;
   --animate-glow-pulse: glow-pulse 3s ease-in-out infinite;
   --animate-breathe: breathe 4s ease-in-out infinite;
+  --animate-badge-pulse: badge-pulse 1.2s ease-in-out infinite;
 }
 
 @keyframes ecg-sweep {
@@ -61,8 +54,8 @@
 }
 
 @keyframes glow-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.1); }
-  50% { box-shadow: 0 0 24px 4px rgba(220, 38, 38, 0.12); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(217, 4, 41, 0.1); }
+  50% { box-shadow: 0 0 24px 4px rgba(217, 4, 41, 0.12); }
 }
 
 @keyframes breathe {
@@ -70,25 +63,36 @@
   50% { opacity: 1; transform: scale(1.03); }
 }
 
+/* Heartbeat-style glow for attention badges (ABNORMAL, REVIEW NOW) */
+@keyframes badge-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(122, 12, 26, 0.30); }
+  50% { box-shadow: 0 0 0 4px rgba(122, 12, 26, 0.10); }
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  @apply bg-gradient-to-b from-medical-50 via-white to-medical-50 text-slate-900 font-sans antialiased;
+  @apply bg-brand text-black font-sans antialiased;
+}
+
+/* Headings use the display face */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', sans-serif;
 }
 
 /* Scrollbar polish */
 ::-webkit-scrollbar { width: 8px; height: 8px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { @apply bg-medical-200 rounded-full; }
-::-webkit-scrollbar-thumb:hover { @apply bg-medical-300; }
+::-webkit-scrollbar-thumb { @apply bg-black/40 rounded-full; }
+::-webkit-scrollbar-thumb:hover { @apply bg-black/60; }
 
 /* ECG grid backdrop (dropzones, mockups) — red tint */
 .ecg-grid {
   background-image:
-    linear-gradient(to right, rgba(220, 38, 38, 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(220, 38, 38, 0.06) 1px, transparent 1px);
+    linear-gradient(to right, rgba(217, 4, 41, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(217, 4, 41, 0.07) 1px, transparent 1px);
   background-size: 28px 28px;
 }
 
@@ -96,9 +100,9 @@ body {
 .shimmer-bg {
   background: linear-gradient(
     90deg,
-    rgba(226,232,240,0.3) 25%,
-    rgba(226,232,240,0.6) 50%,
-    rgba(226,232,240,0.3) 75%
+    rgba(0, 0, 0, 0.04) 25%,
+    rgba(0, 0, 0, 0.08) 50%,
+    rgba(0, 0, 0, 0.04) 75%
   );
   background-size: 200% 100%;
   animation: shimmer 2s linear infinite;
@@ -111,6 +115,6 @@ a, button {
 
 /* Selection color — red tint */
 ::selection {
-  background-color: rgba(220, 38, 38, 0.15);
+  background-color: rgba(217, 4, 41, 0.2);
   color: inherit;
 }
