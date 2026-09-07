@@ -1,0 +1,11 @@
+{
+  "model_name": "all-MiniLM-L6-v2",
+  "embedding_dim": 384,
+  "num_chunks": 50,
+  "num_documents": 1,
+  "max_chunk_chars": 1200,
+  "overlap_chars": 200,
+  "source_files": [
+    "guidelines\\surawicz-2009.md"
+  ]
+}
