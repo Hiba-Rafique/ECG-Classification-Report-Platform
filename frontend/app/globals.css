@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Inter:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Outfit', 'Inter', sans-serif;
+
+  /* Brand red — dark crimson page background */
+  --color-brand: #7a0c1a;
+
+  --animate-ecg: ecg-sweep 2.8s linear infinite;
+  --animate-pulse-ring: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-fade-up: fade-up 0.5s ease-out both;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-heartbeat: heartbeat 1.2s ease-in-out infinite;
+  --animate-shimmer: shimmer 2s linear infinite;
+  --animate-glow-pulse: glow-pulse 3s ease-in-out infinite;
+  --animate-breathe: breathe 4s ease-in-out infinite;
+  --animate-badge-pulse: badge-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes ecg-sweep {
+  from { stroke-dashoffset: 1200; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.05); opacity: 0.3; }
+  100% { transform: scale(1); opacity: 0.6; }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  14% { transform: scale(1.15); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.1); }
+  70% { transform: scale(1); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(217, 4, 41, 0.1); }
+  50% { box-shadow: 0 0 24px 4px rgba(217, 4, 41, 0.12); }
+}
+
+@keyframes breathe {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.03); }
+}
+
+/* Heartbeat-style glow for attention badges (ABNORMAL, REVIEW NOW) */
+@keyframes badge-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(122, 12, 26, 0.30); }
+  50% { box-shadow: 0 0 0 4px rgba(122, 12, 26, 0.10); }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-brand text-black font-sans antialiased;
+}
+
+/* Headings use the display face */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Scrollbar polish */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { @apply bg-black/40 rounded-full; }
+::-webkit-scrollbar-thumb:hover { @apply bg-black/60; }
+
+/* ECG grid backdrop (dropzones, mockups) — red tint */
+.ecg-grid {
+  background-image:
+    linear-gradient(to right, rgba(217, 4, 41, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(217, 4, 41, 0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Shimmer utility for loading states */
+.shimmer-bg {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.04) 25%,
+    rgba(0, 0, 0, 0.08) 50%,
+    rgba(0, 0, 0, 0.04) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
+
+/* Smooth transitions for interactive elements */
+a, button {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Selection color — red tint */
+::selection {
+  background-color: rgba(217, 4, 41, 0.2);
+  color: inherit;
+}

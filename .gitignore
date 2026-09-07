@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environment
+venv/
+.venv/
+env/
+
+# Environment variables (templates: .env.example, frontend/.env.local.example)
+.env
+.env*.local
+
+# IDE
+.vscode/
+.idea/
+.qoder/
+*.swp
+*.swo
+
+# Data (PTB-XL and other datasets — too large for GitHub)
+data/raw/
+data/processed/
+
+# Model checkpoints — the active multi-label weights + per-class thresholds
+# are committed; anything else in models/weights/ stays local
+models/weights/*
+!models/weights/resnet1d_multilabel_best.pth
+!models/weights/thresholds.json
+
+# Jupyter checkpoints (the Kaggle notebook itself is committed)
+.ipynb_checkpoints/
+
+# Scratch / temp files
+.tmp_*
+tmp_*/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Database
+*.db
+*.sqlite3
+
+# Uploads (user ECG recordings)
+uploads/
+
+# Logs
+*.log

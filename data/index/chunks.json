@@ -1,0 +1,302 @@
+[
+  {
+    "text": "# AHA/ACCF/HRS Recommendations for the Standardization and Interpretation of the Electrocardiogram (Surawicz et al., 2009)\n\n**Source**: Surawicz B, Childers R, Deal BJ, et al. \"AHA/ACCF/HRS Recommendations for the Standardization and Interpretation of the Electrocardiogram.\" *Circulation*. 2009;119:e262–e308.\n\nThis document contains the key clinical criteria, waveform definitions, and diagnostic thresholds from the AHA/ACCF/HRS guideline, structured for retrieval-augmented generation.\n\n---",
+    "section": "# AHA/ACCF/HRS Recommendations for the Standardization and Interpretation of the Electrocardiogram (Surawicz et al., 2009)",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "e484326584cdc030"
+  },
+  {
+    "text": "## Part I: ECG Technology and Recording Standards",
+    "section": "## Part I: ECG Technology and Recording Standards",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "f430d44fe19c2241"
+  },
+  {
+    "text": "### Lead System and Recording\n\nThe standard 12-lead ECG uses 6 limb leads (I, II, III, aVR, aVL, aVF) and 6 precordial leads (V1–V6). The limb leads are derived from electrodes on the right arm (RA), left arm (LA), and left leg (LL). The precordial leads are unipolar chest leads referenced to Wilson's central terminal.\n\n**Electrode Placement (Precordial Leads):**\n- V1: Fourth intercostal space, right sternal border\n- V2: Fourth intercostal space, left sternal border\n- V3: Midway between V2 and V4\n- V4: Fifth intercostal space, midclavicular line\n- V5: Left anterior axillary line, same horizontal level as V4\n- V6: Left midaxillary line, same horizontal level as V4\n\n**Standard Calibration:**\n- 10 mm/mV amplitude calibration\n- Paper speed 25 mm/s (digital: ≥500 samples/s recommended)\n- Low-pass filter ≥100 Hz for diagnostic fidelity\n- High-pass filter ≤0.5 Hz (reduces baseline wander without distorting ST segments)",
+    "section": "### Lead System and Recording",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "dea95bcbeefa78e0"
+  },
+  {
+    "text": "ration\n- Paper speed 25 mm/s (digital: ≥500 samples/s recommended)\n- Low-pass filter ≥100 Hz for diagnostic fidelity\n- High-pass filter ≤0.5 Hz (reduces baseline wander without distorting ST segments)\n\n**Waveform Nomenclature:**\n- P wave: atrial depolarization\n- QRS complex: ventricular depolarization (Q = first negative deflection, R = first positive, S = negative after R)\n- T wave: ventricular repolarization\n- U wave: small deflection following T wave (origin uncertain, possibly Purkinje repolarization)\n- PR interval: onset of P to onset of QRS (normal: 120–200 ms)\n- QRS duration: onset to end of QRS (normal: ≤110 ms in adults)\n- QT interval: onset of QRS to end of T wave (corrected for heart rate)\n- ST segment: J-point (end of QRS) to onset of T wave\n- J-point: junction between end of QRS and beginning of ST segment\n\n---",
+    "section": "### Lead System and Recording",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "44c0857712a0d100"
+  },
+  {
+    "text": "## Part II: Normal ECG Waveform Morphology",
+    "section": "## Part II: Normal ECG Waveform Morphology",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "b0cd31255ae3a379"
+  },
+  {
+    "text": "### P Wave\n\nThe P wave represents atrial depolarization. The right atrium depolarizes first (anterior-inferior, toward V1), followed by the left atrium (posterior-leftward, toward V6).\n\n**Normal P Wave Criteria:**\n- Duration: ≤120 ms (usually 80–100 ms)\n- Amplitude: ≤2.5 mm (0.25 mV) in limb leads\n- Polarity: Positive in leads I, II, aVF; biphasic (positive-negative) in V1\n- Morphology: Smooth, rounded, notched in some normal subjects (interpeak notch ≤40 ms)\n- P wave axis: +30° to +75° in the frontal plane\n\n**Normal PR Interval:** 120–200 ms (shorter at faster heart rates; <120 ms suggests pre-excitation or junctional rhythm; >200 ms = first-degree AV block)",
+    "section": "### P Wave",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "f5e973cbdbc4265b"
+  },
+  {
+    "text": "### QRS Complex\n\nThe QRS complex represents the spread of depolarization through the ventricles. Normal sequence: septum depolarizes left-to-right (small q in I, aVL, V5, V6; small r in V1, V2), followed by simultaneous depolarization of both ventricles (dominated by the larger left ventricle), ending with the posterobasal left ventricle and pulmonary conus.\n\n**Normal QRS Duration:** ≤110 ms in adults (≤90 ms in children 8–12 years; ≤80 ms in children <8 years)\n\n**Normal QRS Morphology by Lead:**\n- V1: rS pattern (small r, deep S); R wave ≤6 mm; R/S ratio <1\n- V2–V3: RS pattern; progressive R wave increase (R wave progression)\n- V4: RS or qRs pattern\n- V5–V6: qRs or Rs pattern; R wave ≤25 mm in V5; S wave shallow\n- Lead I: qRs or Rs pattern\n- aVL: qRs, Rs, or rS (depends on heart position)\n- aVF: qRs or Rs (depends on heart position)\n- aVR: Qr, rSr', or QS (always predominantly negative)\n\n**Normal Septal Q Waves:**\n- Duration: <30 ms (except aVR)\n- Amplitude: <25% of the following R wave\n- Present in leads I, aVL, V5, V6 (lateral septal depolarization)\n- Absent in V1–V3",
+    "section": "### QRS Complex",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "7bdfc599e8d7f7b1"
+  },
+  {
+    "text": "ntly negative)\n\n**Normal Septal Q Waves:**\n- Duration: <30 ms (except aVR)\n- Amplitude: <25% of the following R wave\n- Present in leads I, aVL, V5, V6 (lateral septal depolarization)\n- Absent in V1–V3\n\n**Normal R Wave Progression:**\n- R wave amplitude increases from V1 to V5 (or V4)\n- Transition zone (R = S): usually V3 or V4\n- Poor R wave progression: R wave in V3 <2 mm (may suggest anterior MI, LVH, LBBB, lead misplacement)",
+    "section": "### QRS Complex",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "733fb548cbda262c"
+  },
+  {
+    "text": "### ST Segment\n\nThe ST segment represents the period when both ventricles are fully depolarized (phase 2 of the action potential). In normal subjects, the ST segment is isoelectric (at the same level as the PR segment baseline).\n\n**Normal ST Segment:**\n- Isoelectric or slight upsloping (<1 mm elevation)\n- J-point elevation ≤1 mm in limb leads\n- J-point elevation ≤2.5 mm in V2–V3 (especially in young males)\n- Slight ST depression (≤0.5 mm) may be normal if upsloping\n\n**Early Repolarization (Normal Variant):**\n- ST elevation at J-point, most prominent in V2–V5\n- Upsloping ST segment with concave upward morphology\n- Notched or slurred J-point\n- More common in young males, athletes\n- ST elevation usually <2 mm; returns toward baseline with exercise",
+    "section": "### ST Segment",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "e1da6e95a36516a6"
+  },
+  {
+    "text": "### T Wave\n\nThe T wave represents ventricular repolarization. Normal T wave direction generally follows the QRS axis (positive where QRS is predominantly positive).\n\n**Normal T Wave:**\n- Positive in leads I, II, V3–V6\n- Negative in aVR\n- Variable in III, aVL, aVF, V1, V2\n- In V1: may be negative in normal subjects (especially women, children)\n- T wave in V2–V3 may be negative in normal children and young adults\n- Amplitude: usually 1–5 mm in limb leads, up to 10 mm in precordial leads\n- Asymmetric: gradual upslope, steeper downslope\n- T wave should be ≥1/8 and <2/3 of the preceding R wave amplitude in the same lead",
+    "section": "### T Wave",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "6164707ee6c65f78"
+  },
+  {
+    "text": "### QT Interval\n\nThe QT interval measures total ventricular depolarization and repolarization duration. It varies with heart rate, age, and sex.\n\n**QT Correction Formulas:**\n- Bazett: QTc = QT / √RR (most widely used; overcorrects at fast rates, undercorrects at slow rates)\n- Fridericia: QTc = QT / ∛RR (preferred at heart rates far from 60 bpm)\n\n**Normal QTc Values:**\n- Men: ≤450 ms\n- Women: ≤460 ms\n- Children (1–15 years): ≤440 ms\n- Prolonged QTc: >460 ms in men, >470 ms in women\n- Short QTc: <340 ms (rare; associated with short QT syndrome)",
+    "section": "### QT Interval",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "e5c986760790ca75"
+  },
+  {
+    "text": "### U Wave\n\nThe U wave is a small deflection (≤2 mm) following the T wave, best seen in V2–V3 at slow heart rates.\n\n**Normal U Wave:**\n- Same polarity as T wave\n- Amplitude <2 mm or <25% of T wave amplitude\n- Most prominent in V2–V3, at slow heart rates\n\n---",
+    "section": "### U Wave",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "c7b046a4760b2223"
+  },
+  {
+    "text": "## Part III: Abnormal P Wave (Atrial Abnormalities)",
+    "section": "## Part III: Abnormal P Wave (Atrial Abnormalities)",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "a96ec9791b51ab51"
+  },
+  {
+    "text": "### Right Atrial Abnormality (RAA)\n\n**ECG Criteria:**\n- P wave amplitude >2.5 mm in leads II, III, aVF\n- P wave amplitude >1.5 mm in V1 (positive initial component)\n- P wave duration normal (≤120 ms)\n- P pulmonale pattern: tall, peaked P waves in inferior leads\n\n**Clinical Correlations:**\n- Pulmonary hypertension, COPD, tricuspid stenosis\n- Acute right heart strain (pulmonary embolism)\n- Congenital heart disease (atrial septal defect, tetralogy of Fallot)\n- Note: P wave changes correlate poorly with actual atrial size; echocardiography is more accurate",
+    "section": "### Right Atrial Abnormality (RAA)",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "0343ec55b9d72b73"
+  },
+  {
+    "text": "### Left Atrial Abnormality (LAA)\n\n**ECG Criteria:**\n- P wave duration >120 ms (broad, often notched — \"P mitrale\")\n- P wave notch (interpeak interval) >40 ms\n- Lead V1: terminal negative P component ≥1 mm deep and ≥40 ms wide (Morris index: area ≥0.04 mm·s)\n- P wave axis shifted leftward\n\n**Clinical Correlations:**\n- Mitral stenosis or regurgitation\n- Left ventricular diastolic dysfunction\n- Systemic hypertension\n- Atrial fibrillation risk marker",
+    "section": "### Left Atrial Abnormality (LAA)",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "6c59d639b55d9965"
+  },
+  {
+    "text": "### Biatrial Abnormality\n\n**ECG Criteria:**\n- P wave amplitude >2.5 mm AND duration >120 ms in limb leads\n- V1 shows both tall initial positive component AND deep terminal negative component\n\n---",
+    "section": "### Biatrial Abnormality",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "8ef1ef94d1889aca"
+  },
+  {
+    "text": "## Part IV: Intraventricular Conduction Disorders",
+    "section": "## Part IV: Intraventricular Conduction Disorders",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "2d5930c56291d982"
+  },
+  {
+    "text": "### Right Bundle Branch Block (RBBB)\n\n**Complete RBBB Criteria (all must be present):**\n- QRS duration ≥120 ms\n- rsr', rsR', or rSR' pattern in V1–V2 (M-shaped QRS)\n- S wave duration >40 ms in leads I and V6 (slurred S wave)\n- ST depression and T wave inversion in V1–V3 (secondary repolarization abnormality)\n- Normal R peak time in V5–V6 (<50 ms)\n\n**Incomplete RBBB:**\n- QRS duration 110–120 ms with rSR' pattern in V1\n- May be normal variant (especially in young, thin individuals)\n- RSR' in V1 with QRS <110 ms is considered normal variant\n\n**Clinical Significance:**\n- Common in normal subjects (especially incomplete RBBB)\n- Can indicate: RV volume overload (ASD), pulmonary disease, congenital heart disease\n- New RBBB with chest pain: consider proximal LAD occlusion (septal branch)\n- RBBB + LAFB = bifascicular block",
+    "section": "### Right Bundle Branch Block (RBBB)",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "5baa29887ee88e48"
+  },
+  {
+    "text": "### Left Bundle Branch Block (LBBB)\n\n**Complete LBBB Criteria (all must be present):**\n- QRS duration ≥120 ms\n- Broad, notched or slurred R wave in leads I, aVL, V5, V6 (monophasic, no Q waves)\n- Absence of septal Q waves in leads I, V5, V6\n- rS or QS complex in V1–V2 (with small r or QS)\n- R peak time in V5–V6 >60 ms (delayed intrinsicoid deflection)\n- ST depression and T wave inversion in leads with dominant R wave (I, aVL, V5, V6); ST elevation in V1–V3 (secondary repolarization abnormality — discordant ST-T changes)\n\n**Clinical Significance:**\n- Rarely a normal variant — usually indicates underlying structural heart disease\n- Associated with: ischemic heart disease, cardiomyopathy, aortic valve disease, hypertension, LVH\n- New LBBB with symptoms: treat as STEMI equivalent (ACC/AHA guidelines)\n- LBBB masks ECG diagnosis of MI and LVH (use Sgarbossa criteria for MI in LBBB)",
+    "section": "### Left Bundle Branch Block (LBBB)",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "313ba17a363df3c1"
+  },
+  {
+    "text": "### Left Anterior Fascicular Block (LAFB) / Left Anterior Hemiblock\n\n**Criteria:**\n- Left axis deviation: QRS axis −45° to −90° (most important criterion)\n- qR pattern in leads I and aVL\n- rS pattern in leads II, III, aVF\n- QRS duration: normal or slightly prolonged (≤120 ms)\n- R wave peak time in aVL >45 ms\n- No other cause of left axis deviation (LVH, inferior MI, WPW)\n\n**Clinical Significance:**\n- Most common intraventricular conduction defect\n- Associated with: ischemic heart disease, hypertension, cardiomyopathy, aortic valve disease\n- Can occur in normal aging (fibrosis of conduction system)",
+    "section": "### Left Anterior Fascicular Block (LAFB) / Left Anterior Hemiblock",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "56b54006e9a38616"
+  },
+  {
+    "text": "### Left Posterior Fascicular Block (LPFB) / Left Posterior Hemiblock\n\n**Criteria (diagnosis of exclusion):**\n- Right axis deviation: QRS axis +110° to +180°\n- rS pattern in leads I and aVL\n- qR pattern in leads II, III, aVF\n- QRS duration: normal (<120 ms)\n- Exclude other causes of right axis deviation (RVH, lateral MI, pulmonary disease, normal variant in young/thin subjects)\n\n**Clinical Significance:**\n- Rare as an isolated finding\n- Associated with: extensive coronary disease (inferior MI), cardiomyopathy\n- More commonly seen with RBBB (bifascicular block)",
+    "section": "### Left Posterior Fascicular Block (LPFB) / Left Posterior Hemiblock",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "ffd9088bd0eb994d"
+  },
+  {
+    "text": "### Bifascicular and Trifascicular Block\n\n**Bifascicular Block:**\n- RBBB + LAFB (most common): RBBB pattern with left axis deviation\n- RBBB + LPFB (less common): RBBB pattern with right axis deviation\n- LBBB (some consider functionally bifascicular since both fascicles of LBB are blocked)\n\n**Trifascicular Block:**\n- Bifascicular block + first-degree AV block (prolonged PR interval)\n- True trifascicular block = alternating bundle branch block or complete heart block with escape rhythm\n- The term \"trifascicular block\" on ECG should be reserved for documented alternating BBB or AV block with bifascicular block\n\n---",
+    "section": "### Bifascicular and Trifascicular Block",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "faa737ed9ee04ded"
+  },
+  {
+    "text": "## Part V: Myocardial Ischemia, Injury, and Infarction",
+    "section": "## Part V: Myocardial Ischemia, Injury, and Infarction",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "94ffc127990e2c69"
+  },
+  {
+    "text": "### ST-Segment Elevation (Acute Injury / STEMI)\n\n**Diagnostic Criteria (measured at J-point):**\n- V2–V3: ≥2 mm (≥2.5 mm in men <40 years; ≥1.5 mm in women)\n- All other leads: ≥1 mm (0.1 mV)\n- ST elevation must be present in ≥2 contiguous leads\n- Contiguous leads: same territory (e.g., II + III + aVF = inferior; V1–V4 = anteroseptal; V5–V6 + I + aVL = lateral)\n\n**Localization of STEMI by Lead:**\n- Inferior MI: II, III, aVF (usually RCA or LCx)\n- Anteroseptal MI: V1–V4 (LAD)\n- Anterolateral MI: V5–V6, I, aVL (LCx or diagonal branch of LAD)\n- Extensive anterior MI: V1–V6, I, aVL (proximal LAD)\n- Right ventricular MI: V4R (right-sided leads; seen with inferior MI, RCA)\n- Posterior MI: ST depression V1–V3 (reciprocal), confirmed by ST elevation in V7–V9 (posterior leads)\n\n**Evolution of STEMI on ECG:**\n1. Hyperacute T waves (tall, symmetric, peaked) — minutes\n2. ST elevation (convex upward / tombstone) — minutes to hours\n3. Pathological Q waves develop — hours to days\n4. ST returns to baseline — days to weeks\n5. T wave inversion — weeks to months (may persist)",
+    "section": "### ST-Segment Elevation (Acute Injury / STEMI)",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "982cdc0267a5af67"
+  },
+  {
+    "text": "### ST-Segment Depression (Ischemia / Subendocardial)\n\n**Diagnostic Criteria:**\n- Horizontal or downsloping ST depression ≥0.5 mm (0.05 mV) in ≥2 contiguous leads\n- Measured at J-point + 60–80 ms (standard: J+80 ms)\n- Upsloping ST depression is less specific\n\n**Clinical Significance:**\n- Subendocardial ischemia (NSTEMI or unstable angina)\n- Reciprocal ST depression in leads opposite to ST elevation (e.g., V1–V3 depression with inferior STEMI = posterior extension)\n- Digoxin effect: \"scooped\" (concave) ST depression (not ischemic)\n- LVH with strain: ST depression + T inversion in lateral leads (I, aVL, V5, V6)",
+    "section": "### ST-Segment Depression (Ischemia / Subendocardial)",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "a3e62a42f578848e"
+  },
+  {
+    "text": "### Pathological Q Waves\n\n**Criteria for Pathological Q Waves:**\n- Duration ≥30 ms (0.03 s)\n- Amplitude ≥1 mm (0.1 mV)\n- Q/R ratio ≥25% in that lead\n- Present in ≥2 contiguous leads\n- Exception: QS complex is normal in aVR, V1, and occasionally III\n\n**Q Wave by Location:**\n- Septal MI: Q waves in V1–V2 (LAD septal branch)\n- Anterior MI: Q waves in V3–V4 (LAD)\n- Lateral MI: Q waves in I, aVL, V5–V6 (LCx)\n- Inferior MI: Q waves in II, III, aVF (RCA or LCx)\n\n**Q Wave Equivalents:**\n- Poor R wave progression (R <2 mm in V3 or V <3 mm in V1–V2)\n- QS complex in V1–V3 (loss of septal r wave)\n- New Q waves on serial ECGs",
+    "section": "### Pathological Q Waves",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "bd245aeafef89593"
+  },
+  {
+    "text": "### T Wave Changes in Ischemia\n\n**Ischemic T Wave Inversion:**\n- Symmetric, deeply inverted T waves\n- In ≥2 contiguous leads (same territory as ischemia)\n- Amplitude >5 mm suggests significant ischemia\n- Wellens syndrome: deeply inverted or biphasic T waves in V2–V3 (critical proximal LAD stenosis)\n\n**Hyperacute T Waves:**\n- Tall, broad, symmetric T waves (>10 mm or >2/3 of R wave)\n- Earliest sign of acute coronary occlusion\n- Precedes ST elevation by minutes\n\n---",
+    "section": "### T Wave Changes in Ischemia",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "341404be8d159f6b"
+  },
+  {
+    "text": "## Part VI: Chamber Hypertrophy",
+    "section": "## Part VI: Chamber Hypertrophy",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "91af2fa598cb694e"
+  },
+  {
+    "text": "### Left Ventricular Hypertrophy (LVH)\n\n**Voltage Criteria (most commonly used):**\n\n| Criterion | Formula | Threshold |\n|---|---|---|\n| Sokolow-Lyon | S in V1 + R in V5 or V6 | ≥35 mm (3.5 mV) |\n| Cornell voltage | R in aVL + S in V3 | ≥28 mm (men) / ≥20 mm (women) |\n| Cornell product | (R in aVL + S in V3) × QRS duration | ≥2440 mm·ms |\n| Romhilt-Est score | Multiple criteria (voltage, ST-T, LAE, axis, duration, intrinsicoid deflection) | ≥5 points = definite LVH |\n\n**Supporting Criteria:**\n- ST depression + T wave inversion in lateral leads (I, aVL, V5, V6) — \"LVH with strain\"\n- Left axis deviation\n- Left atrial abnormality (Morris index)\n- QRS duration mildly prolonged (110–120 ms)\n- Intrinsicoid deflection in V5 or V6 >50 ms\n\n**Limitations:**\n- Sensitivity ~50%, specificity ~90% (voltage criteria alone)\n- Voltage is affected by body habitus, age, sex, race, lung disease, pericardial effusion\n- Echocardiography is the reference standard for LVH diagnosis",
+    "section": "### Left Ventricular Hypertrophy (LVH)",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "b1f589711c5b3cdb"
+  },
+  {
+    "text": "### Right Ventricular Hypertrophy (RVH)\n\n**ECG Criteria:**\n- R/S ratio >1 in V1 (dominant R wave in V1)\n- R wave in V1 >7 mm (0.7 mV)\n- Right axis deviation (axis >+110°)\n- ST depression + T inversion in V1–V3 (RV strain pattern)\n- S wave in V5 or V6 >7 mm\n- Incomplete or complete RBBB pattern may be present\n\n**Supporting Criteria:**\n- Right atrial abnormality (P pulmonale)\n- qR pattern in V1 (indicates severe RVH)\n- S1S2S3 pattern (S waves in I, II, III)\n- Clockwise rotation (persistent S waves through V6)\n\n**Clinical Correlations:**\n- Pulmonary hypertension\n- Pulmonary stenosis\n- Congenital heart disease (tetralogy of Fallot, ASD)\n- Chronic lung disease (cor pulmonale)\n- Note: RVH is difficult to diagnose by ECG alone; sensitivity is low\n\n---",
+    "section": "### Right Ventricular Hypertrophy (RVH)",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "84d483bea6851a41"
+  },
+  {
+    "text": "## Part VII: Arrhythmias",
+    "section": "## Part VII: Arrhythmias",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "2fa770b29ffe16a0"
+  },
+  {
+    "text": "### Sinus Rhythm and Variants\n\n**Normal Sinus Rhythm:**\n- Heart rate: 60–100 bpm\n- P wave positive in I, II, aVF; negative in aVR\n- PR interval: 120–200 ms\n- Constant P-P intervals (variation <160 ms)\n\n**Sinus Bradycardia:** Rate <60 bpm (normal in athletes, during sleep)\n**Sinus Tachycardia:** Rate >100 bpm (exercise, fever, anxiety, physiological stress)\n**Sinus Arrhythmia:** Phasic variation in P-P intervals (respiratory sinus arrhythmia: rate increases with inspiration; common and normal, especially in young people)",
+    "section": "### Sinus Rhythm and Variants",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "af9f2a61a44b527b"
+  },
+  {
+    "text": "### Atrial Fibrillation (AF)\n\n**ECG Criteria:**\n- Absence of organized P waves; replaced by fibrillatory (f) waves\n- Irregularly irregular R-R intervals\n- Ventricular rate usually 60–180 bpm (uncontrolled)\n- f waves: variable amplitude (coarse AF: >0.5 mm; fine AF: <0.5 mm)\n- Narrow QRS (unless pre-existing bundle branch block or aberrant conduction)",
+    "section": "### Atrial Fibrillation (AF)",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "01e21cbe0ad0caec"
+  },
+  {
+    "text": "### Atrial Flutter\n\n**ECG Criteria:**\n- Sawtooth flutter (F) waves, rate 250–350 bpm (typically ~300 bpm)\n- Regular or regularly irregular ventricular response (2:1, 3:1, 4:1 block)\n- Flutter waves best seen in II, III, aVF (typical counterclockwise flutter: negative in inferior leads)\n- 2:1 AV block most common → ventricular rate ~150 bpm (a rate of 150 bpm should always prompt consideration of flutter with 2:1 block)",
+    "section": "### Atrial Flutter",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "f269408a6904a2d8"
+  },
+  {
+    "text": "### Atrioventricular (AV) Blocks\n\n**First-Degree AV Block:**\n- PR interval >200 ms\n- Every P wave followed by QRS (1:1 conduction)\n- Usually benign; can be seen with increased vagal tone, medications, AV nodal disease\n\n**Second-Degree AV Block, Mobitz Type I (Wenckebach):**\n- Progressive PR prolongation until a P wave is not followed by QRS (dropped beat)\n- Then cycle repeats\n- Usually at AV nodal level (narrow QRS escape)\n- Generally benign; often seen during sleep, in athletes, with vagotonic states\n\n**Second-Degree AV Block, Mobitz Type II:**\n- Constant PR interval with intermittent dropped QRS (sudden non-conducted P wave)\n- Usually infranodal (bundle of His or below)\n- Associated with wide QRS escape rhythm\n- Serious — can progress to complete heart block; pacemaker may be indicated\n\n**Third-Degree (Complete) AV Block:**\n- Complete dissociation of P waves and QRS complexes\n- Atrial rate > ventricular rate\n- Escape rhythm: narrow QRS (junctional, 40–60 bpm) or wide QRS (ventricular, 20–40 bpm)\n- Requires pacemaker",
+    "section": "### Atrioventricular (AV) Blocks",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "aa82c5b7d1e9f3e8"
+  },
+  {
+    "text": "### Ventricular Arrhythmias\n\n**Premature Ventricular Complexes (PVCs):**\n- Wide QRS (>120 ms) without preceding P wave\n- Bizarre morphology, discordant ST-T changes\n- Compensatory pause (full compensatory pause: PP interval spanning PVC = 2× normal PP)\n- Patterns: bigeminy (every other beat), trigeminy, couplets, triplets\n\n**Ventricular Tachycardia (VT):**\n- ≥3 consecutive PVCs at rate >100 bpm (typically 120–250 bpm)\n- Wide QRS (>140 ms), AV dissociation\n- Fusion and capture beats (diagnostic of VT vs SVT with aberrancy)\n- Monomorphic VT: uniform QRS morphology (re-entry)\n- Polymorphic VT: changing QRS morphology (ischemia, torsades de pointes)\n\n**Torsades de Pointes:**\n- Polymorphic VT with characteristic twisting QRS axis\n- Associated with prolonged QT interval\n- Causes: drugs (antiarrhythmics, antipsychotics, antibiotics), electrolyte imbalance (hypokalemia, hypomagnesemia), congenital long QT\n\n**Ventricular Fibrillation (VF):**\n- Chaotic, irregular waveform with no organized QRS\n- No effective cardiac output\n- Requires immediate defibrillation",
+    "section": "### Ventricular Arrhythmias",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "d5cdae5322955a02"
+  },
+  {
+    "text": "### Pre-Excitation (WPW Syndrome)\n\n**ECG Criteria:**\n- Short PR interval (<120 ms)\n- Delta wave: slurred upstroke at beginning of QRS\n- Widened QRS (>110 ms, depends on degree of pre-excitation)\n- Secondary ST-T wave changes (opposite to delta wave direction)\n- Location of accessory pathway affects delta wave polarity\n\n---",
+    "section": "### Pre-Excitation (WPW Syndrome)",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "ce55814a2f1ac2bc"
+  },
+  {
+    "text": "## Part VIII: Repolarization Abnormalities",
+    "section": "## Part VIII: Repolarization Abnormalities",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "c92220b68a2ec78e"
+  },
+  {
+    "text": "### Long QT Syndrome\n\n**Congenital Long QT:**\n- QTc >460 ms (men) or >470 ms (women); borderline 440–460 ms\n- LQT1: Broad-based T waves; triggered by exercise (especially swimming)\n- LQT2: Low-amplitude, notched T waves; triggered by auditory stimuli\n- LQT3: Late-onset T wave; events during sleep/rest\n\n**Acquired Long QT Causes:**\n- Drugs: antiarrhythmics (sotalol, amiodarone, procainamide), antipsychotics (haloperidol, quetiapine), antibiotics (macrolides, fluoroquinolones), antiemetics (ondansetron)\n- Electrolyte abnormalities: hypokalemia, hypomagnesemia, hypocalcemia\n- Bradycardia, hypothyroidism, CNS disease\n\n**Drug-induced Torsades Risk:**\n- QTc >500 ms: high risk — discontinue offending agent\n- Increase in QTc >60 ms from baseline: concerning",
+    "section": "### Long QT Syndrome",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "716cab2867b12816"
+  },
+  {
+    "text": "### Short QT Syndrome\n\n**Criteria:**\n- QTc <340 ms\n- Tall, peaked T waves\n- Short or absent ST segment\n- Associated with atrial and ventricular arrhythmias",
+    "section": "### Short QT Syndrome",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "72f0c664569eab45"
+  },
+  {
+    "text": "### Electrolyte Effects on ECG\n\n**Hyperkalemia (progressive):**\n1. Tall, peaked T waves (K+ 5.5–6.5 mEq/L)\n2. PR prolongation, P wave flattening (K+ 6.5–7.5)\n3. QRS widening, sine wave pattern (K+ >7.5)\n4. VF or asystole (K+ >8.0)\n\n**Hypokalemia:**\n- ST depression, T wave flattening or inversion\n- Prominent U wave (fuses with T wave → apparent QT prolongation)\n- Risk of arrhythmias\n\n**Hypercalcemia:** Short QT interval\n**Hypocalcemia:** Prolonged QT interval (ST segment prolongation)\n\n**Digoxin Effect (therapeutic):**\n- Scooped (concave) ST depression\n- T wave flattening or inversion\n- Shortened QT interval\n- PR prolongation\n- NOT indicative of toxicity\n\n**Digoxin Toxicity:**\n- Any arrhythmia (PVCs most common; atrial tachycardia with block is classic)\n- AV block (any degree)\n- Bidirectional VT (pathognomonic but rare)\n\n---",
+    "section": "### Electrolyte Effects on ECG",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "108a276796217651"
+  },
+  {
+    "text": "## Part IX: ECG in Special Populations",
+    "section": "## Part IX: ECG in Special Populations",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "d61fe12e8b6d2c5a"
+  },
+  {
+    "text": "### Pediatric ECG\n\n**Neonatal (0–1 month):**\n- Right axis deviation (+90° to +180°) — normal due to RV dominance\n- Dominant R wave in V1 (RV dominance)\n- Short PR interval (80–120 ms)\n- Short QRS duration (50–70 ms)\n- Fast heart rate (100–180 bpm)\n\n**Infant (1–12 months):**\n- Axis shifts leftward progressively\n- R/S ratio in V1 decreases\n- T wave in V1 becomes negative after day 3 (remains negative through childhood)\n\n**Child (1–12 years):**\n- Progressive decrease in heart rate, increase in PR and QRS duration\n- R wave progression approaches adult pattern by age 8–12\n- T wave inversion in V1–V3 normal through adolescence (\"juvenile T wave pattern\")",
+    "section": "### Pediatric ECG",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "9b63b3bfd85ee38b"
+  },
+  {
+    "text": "### ECG in Athletes\n\n**Common Normal Findings:**\n- Sinus bradycardia (40–60 bpm, may be <40 bpm during sleep)\n- First-degree AV block\n- Mobitz Type I (Wenckebach) second-degree AV block\n- Incomplete RBBB\n- Early repolarization (ST elevation, notched J-point)\n- Voltage criteria for LVH (without pathological ST-T changes)\n\n**Abnormal Findings Requiring Further Evaluation:**\n- T wave inversion >1 mm in ≥2 contiguous leads (beyond V1)\n- Pathological Q waves\n- ST depression\n- Complete BBB\n- WPW pattern\n- Long QT (QTc >470 ms men, >480 ms women)\n- Brugada pattern (coved ST elevation V1–V3)\n- Ventricular pre-excitation\n\n---",
+    "section": "### ECG in Athletes",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "56d446465111d756"
+  },
+  {
+    "text": "## Part X: ECG in Patients with Pacemakers and ICDs",
+    "section": "## Part X: ECG in Patients with Pacemakers and ICDs",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "250f3936897b33d2"
+  },
+  {
+    "text": "### Pacemaker ECG\n\n**Pacing Spike Identification:**\n- Atrial pacing: spike followed by P wave\n- Ventricular pacing: spike followed by wide QRS (resembling LBBB pattern, as RV apex is paced)\n- AV sequential pacing: atrial spike + P wave, then ventricular spike + QRS\n\n**Pacemaker Malfunction:**\n- Failure to pace: absence of expected pacing spike\n- Failure to capture: pacing spike without following depolarization\n- Oversensing: pacing inhibition by non-cardiac signals (myopotential, EMI)\n- Undersensing: pacing occurs on intrinsic beats (competitive pacing)\n\n**Sgarbossa Criteria (MI in Ventricular Paced Rhythm / LBBB):**\n1. ST elevation ≥1 mm concordant with QRS (in leads with positive QRS): 5 points\n2. ST depression ≥1 mm in V1, V2, or V3: 3 points\n3. ST elevation ≥5 mm discordant with QRS (in leads with negative QRS): 2 points\n- Score ≥3: suggests acute MI (specificity 98%, sensitivity ~30%)\n\n---",
+    "section": "### Pacemaker ECG",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "8a51eb2174564d1d"
+  },
+  {
+    "text": "## Part XI: Brugada Syndrome and Other Channelopathies",
+    "section": "## Part XI: Brugada Syndrome and Other Channelopathies",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "331a8e2dc648e54f"
+  },
+  {
+    "text": "### Brugada Syndrome\n\n**Type 1 (Diagnostic):**\n- Coved ST elevation ≥2 mm in ≥1 right precordial lead (V1–V2, placed in 2nd–3rd ICS)\n- Followed by negative T wave\n- Can be spontaneous or drug-induced (flecainide, ajmaline, procainamide challenge)\n\n**Type 2 (Suggestive):**\n- Saddleback ST elevation ≥2 mm with trough ≥1 mm\n- Positive or biphasic T wave\n- Not diagnostic alone; requires clinical correlation or provocation test\n\n**Type 3:**\n- Saddleback or coved ST elevation <1 mm\n- Not considered diagnostic",
+    "section": "### Brugada Syndrome",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "1bbf28ab52711ece"
+  },
+  {
+    "text": "### Early Repolarization Pattern\n\n- J-point elevation ≥1 mm in ≥2 contiguous leads (inferior and/or lateral)\n- Notched or slurred J-point\n- Concave upward ST elevation\n- Considered benign historically; recent data links to increased arrhythmic risk when present in inferior leads with horizontal ST segment\n\n---",
+    "section": "### Early Repolarization Pattern",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "3dd3817afef5a38e"
+  },
+  {
+    "text": "## Summary of Key Diagnostic Thresholds\n\n| Parameter | Normal | Borderline | Abnormal |\n|---|---|---|---|\n| Heart rate | 60–100 bpm | — | <60 or >100 bpm |\n| PR interval | 120–200 ms | — | >200 ms (1° AVB) |\n| QRS duration | ≤110 ms | 110–120 ms | ≥120 ms (BBB) |\n| QTc (men) | ≤450 ms | 450–460 ms | >460 ms |\n| QTc (women) | ≤460 ms | 460–470 ms | >470 ms |\n| P wave amplitude | ≤2.5 mm | — | >2.5 mm (RAA) |\n| P wave duration | ≤120 ms | — | >120 ms (LAA) |\n| ST elevation (V2–V3) | <2 mm | — | ≥2 mm (men) / ≥1.5 mm (women) |\n| ST elevation (other) | <1 mm | — | ≥1 mm |\n| ST depression | <0.5 mm | — | ≥0.5 mm (horizontal/downsloping) |\n| Pathological Q wave | <30 ms, <1 mm | — | ≥30 ms, ≥1 mm, Q/R ≥25% |\n| Sokolow-Lyon (LVH) | <35 mm | — | ≥35 mm |\n| Cornell (LVH, men) | <28 mm | — | ≥28 mm |\n| Cornell (LVH, women) | <20 mm | — | ≥20 mm |\n| R wave V1 (RVH) | <7 mm | — | ≥7 mm |",
+    "section": "## Summary of Key Diagnostic Thresholds",
+    "source": "guidelines\\surawicz-2009.md",
+    "chunk_hash": "6d2b66c40662fdfa"
+  }
+]
